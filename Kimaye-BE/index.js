@@ -1,9 +1,13 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const fruitsRouter = require("./routes/Products_route");
 const userRouter = require("./routes/User_route");
 const cors = require("cors");
-const connection = require("./DB/db");
 const cartRouter = require("./routes/Cart.route");
+
+dotenv.config({ path: "./config.env" });
+
+const connection = require("./DB/db");
 const PORT = process.env.PORT || 8080;
 
 const app = express();
