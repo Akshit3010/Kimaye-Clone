@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Ap.module.css";
 import { ProductCard } from "../productCard/ProductCard";
 import { getRequest } from "../../redux/allProductsRedux/AllProductAction";
+import { useNavigate } from "react-router-dom";
 
 export const AllProducts = () => {
+  const navigate = useNavigate();
   const { isLoading, isError, allFruits } = useSelector(
     (state) => state.AllProductReducer
   );
@@ -14,17 +16,22 @@ export const AllProducts = () => {
     getRequest(dispatch);
     // console.log(isLoading,isError)
     // console.log(allFruits)
-  }, [dispatch]);
+  }, []);
+  const handlenav = (category) => {
+    navigate(`/${category}`);
+  };
   return (
     <>
       <div className={styles.category}>
         <div>ALL FRUITS</div>
-        <div>FRESH CUTS</div>
-        <div>FRUIT COMBOS</div>
-        <div>GIFTS BY KIMAYE</div>
+        <div onClick={() => handlenav("freshcuts")}>FRESH CUTS</div>
+        <div onClick={() => handlenav("fruitcombos")}>FRUIT COMBOS</div>
+        <div onClick={() => handlenav("giftbykimaye")}>GIFTS BY KIMAYE</div>
       </div>
       <div className={styles.routes}>
-        <p>Home / allfruits</p>
+        <p>
+          <i className="fa-solid fa-house"></i>Home / allfruits
+        </p>
         <p>Showing {allFruits.length} result</p>
       </div>
       {/* map the data here */}

@@ -1,9 +1,12 @@
-import { GET_DATA, IS_ERROR, IS_LOADING } from "./AllProductAction";
+import { getFromLocal, saveInLocal } from "../../localStorageFn/localstorage";
+import { ADD_CART, GET_DATA, GET_DATA_BY_CATEGORY, IS_ERROR, IS_LOADING } from "./AllProductAction";
 
 const initState = {
   isLoading: false,
   isError: false,
   allFruits: [],
+  cartData:getFromLocal("cartData") || [],
+  categoryData:[]
 };
 
 export const AllProductReducer = (state = initState, { type, payload }) => {
@@ -31,6 +34,23 @@ export const AllProductReducer = (state = initState, { type, payload }) => {
         isError: false,
         allFruits: payload,
       };
+    };
+    case GET_DATA_BY_CATEGORY: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        categoryData: payload,
+      };
+    };
+    case ADD_CART:{
+      const updateCart = [...state.cartData,payload]
+      // console.log(updateCart)
+      saveInLocal("cartData",updateCart)
+      return {
+          ...state,
+          cartData:updateCart
+      }
     }
     default: {
       return state;

@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Pc.module.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { addTocart } from "../../redux/allProductsRedux/AllProductAction";
 
 export const ProductCard = ({
   title,
@@ -10,18 +12,40 @@ export const ProductCard = ({
   origin,
   price,
   id,
+  discount,
 }) => {
   const [btnTogle, setBtntogle] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleClick = () => {
-    navigate(`fruits/:${id}`);
+    navigate(`fruits/${id}`);
   };
-  const handleCart = (id) => {
-    // console.log(id)
+  const handleCart = (
+    title,
+    image,
+    description,
+    origin,
+    price,
+    id,
+    discount
+  ) => {
+    const cartData = {
+      title,
+      image,
+      description,
+      origin,
+      price,
+      id,
+      discount,
+    };
+    dispatch(addTocart(cartData));
   };
+
   return (
     <div className={styles.productCardMain}>
       <div className={styles.imgDiv}>
+        {discount && <div className={styles.valuepackTag}>VALUE PACK</div>}
+
         <img onClick={handleClick} src={image} alt={title} />
         {!btnTogle ? (
           <div
@@ -29,10 +53,15 @@ export const ProductCard = ({
             className={styles.CtoSbtn}
           >
             <i className="fa-solid fa-cart-arrow-down"></i>
-            CHOOSE TO SHOP
+            CHOOSE YOUR PACK
           </div>
         ) : (
-          <div onClick={() => handleCart(id)} className={styles.CtoSbtn}>
+          <div
+            onClick={() =>
+              handleCart(title, image, description, origin, price, id, discount)
+            }
+            className={styles.CtoSbtn}
+          >
             <i className="fa-solid fa-cart-arrow-down"></i>
             ADD TO CART
           </div>

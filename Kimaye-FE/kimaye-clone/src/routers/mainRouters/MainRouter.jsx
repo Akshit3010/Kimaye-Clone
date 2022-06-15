@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { AllProducts } from "../../components/allProducts/AllProducts";
+import { Category } from "../../components/category/Category";
 
 export const MainRouter = () => {
   return (
@@ -10,6 +11,10 @@ export const MainRouter = () => {
       <Route
         path="/fruits/:fruitsDetails"
         element={<div>Fruits details</div>}
+      ></Route>
+      <Route
+        path="/:category"
+        element={<Category/>}
       ></Route>
     </Routes>
   );
