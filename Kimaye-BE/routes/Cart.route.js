@@ -3,6 +3,6 @@ const Cart = require("../models/Cart");
 
 const cartRouter = Router();
 
-cartRouter.get("/cart", (req, res) => {});
+cartRouter.get("/", (req, res) => {});
 
 module.exports = cartRouter;

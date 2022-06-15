@@ -21,7 +21,7 @@ app.use(
 );
 
 app.use("/", fruitsRouter);
-app.use("/", cartRouter);
+app.use("/cart", cartRouter);
 app.use("/auth", userRouter);
 
 app.get("/", (req, res) => {
