@@ -1,10 +1,26 @@
 const { Router } = require("express");
-const Product = require("../models/Products");
+const Fruit = require("../models/Fruits");
 
-const productsRouter = Router();
+const fruitsRouter = Router();
 
-productsRouter.post("/products", (req, res) => {});
+fruitsRouter.get("/allfruits", async (req, res) => {
+  const fruits = await Fruit.find();
+  res.status(200).send(fruits);
+});
 
-productsRouter.get("/products", async (req, res) => {});
+fruitsRouter.get("/cut-fruits", async (req, res) => {
+  const fruits = await Fruit.find({ category: "Fresh cuts" });
+  res.status(200).send(fruits);
+});
 
-module.exports = productsRouter;
+fruitsRouter.get("/combo-fruits", async (req, res) => {
+  const fruits = await Fruit.find({ category: "Fruit combos" });
+  res.status(200).send(fruits);
+});
+
+fruitsRouter.get("/gifts", async (req, res) => {
+  const fruits = await Fruit.find({ category: "Gifts" });
+  res.status(200).send(fruits);
+});
+
+module.exports = fruitsRouter;

@@ -1,14 +1,15 @@
 const { Schema, model } = require("mongoose");
 
-const ProductSchema = new Schema({
+const FruitSchema = new Schema({
   image: String,
   title: String,
   description: String,
   origin: String,
   price: Number,
   quantity: Number,
+  category: String,
 });
 
-const Product = model("Products", ProductSchema);
+const Fruit = model("Fruit", FruitSchema);
 
-module.exports = Product;
+module.exports = Fruit;
