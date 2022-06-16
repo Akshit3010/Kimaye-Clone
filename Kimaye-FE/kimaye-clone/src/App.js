@@ -1,16 +1,14 @@
 import "./App.css";
-import OurStory from "./Learn/OurStory";
+import Cart from "./components/Cart";
+// import OurStory from "./Learn/OurStory";
 
 function App() {
-  return <div className="App">
-
-     <OurStory/>
-
-
-
-
-
-  </div>;
+  return (
+    <div>
+      {/* <OurStory /> */}
+      <Cart />
+    </div>
+  );
 }
 
 export default App;
