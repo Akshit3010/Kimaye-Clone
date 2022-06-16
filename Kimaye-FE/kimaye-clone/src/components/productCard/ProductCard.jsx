@@ -3,7 +3,7 @@ import styles from "./Pc.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { addTocart } from "../../redux/allProductsRedux/AllProductAction";
+import { addTocart } from "../../redux/categoryRedux/categoryAction";
 
 export const ProductCard = ({
   title,

@@ -2,28 +2,28 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getRequestBycat } from "../../redux/allProductsRedux/AllProductAction";
+import { getRequestBycat } from "../../redux/categoryRedux/categoryAction";
 import { ProductCard } from "../productCard/ProductCard";
-import styles from "../allProducts/Ap.module.css";
+import styles from "./Ap.module.css";
 
 export const Category = () => {
   const { category } = useParams();
   console.log(category);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { isLoading, isError, categoryData } = useSelector(
     (state) => state.AllProductReducer
   );
   useEffect(() => {
     getRequestBycat(dispatch, category);
-  }, [dispatch,category]);
+  }, [dispatch, category]);
   const handlenav = (category) => {
     navigate(`/${category}`);
   };
   return (
     <>
-    <div className={styles.category}>
-        <div onClick={()=>navigate("/allfruits")}>ALL FRUITS</div>
+      <div className={styles.category}>
+        <div onClick={() => handlenav("allfruits")}>ALL FRUITS</div>
         <div onClick={() => handlenav("freshcuts")}>FRESH CUTS</div>
         <div onClick={() => handlenav("fruitcombos")}>FRUIT COMBOS</div>
         <div onClick={() => handlenav("giftbykimaye")}>GIFTS BY KIMAYE</div>

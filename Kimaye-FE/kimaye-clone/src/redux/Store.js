@@ -1,5 +1,5 @@
 import { legacy_createStore as createStore, combineReducers } from "redux";
-import { AllProductReducer } from "./allProductsRedux/AllProductReducer";
+import { AllProductReducer } from "./categoryRedux/categoryReducer";
 
 const rootReducer = combineReducers({ AllProductReducer });
 
