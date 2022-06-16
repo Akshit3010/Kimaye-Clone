@@ -25,7 +25,7 @@ app.use("/cart", cartRouter);
 app.use("/auth", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Homepage");
+  res.send("App Working");
 });
 
 app.listen(PORT, async () => {

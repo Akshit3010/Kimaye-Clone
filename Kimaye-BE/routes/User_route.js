@@ -52,6 +52,20 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
-userRouter.get("/logout", async (req, res) => {});
+userRouter.post("/logout", async (req, res) => {
+  try {
+    const { token } = req.headers;
+    const user = await User.findOne({ "tokens.token": token });
+    if (user) {
+      user.tokens = [];
+      await user.save();
+      res.status(200).json({ message: "logout successfully" });
+    } else {
+      res.status(400).json({ error: "invalid token" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = userRouter;
