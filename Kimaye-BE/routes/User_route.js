@@ -18,7 +18,9 @@ userRouter.post("/signup", async (req, res) => {
     } else {
       const user = new User({ firstName, lastName, email, password });
       await user.save();
-      res.status(201).json({ message: "user registered successfully" });
+      res
+        .status(201)
+        .json({ message: "user registered successfully", user: user });
     }
   } catch (err) {
     console.log(err);
