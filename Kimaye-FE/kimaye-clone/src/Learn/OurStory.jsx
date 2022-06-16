@@ -86,7 +86,7 @@ width:80%`;
 
 const OurStory = () => {
   return (
-    <div style={{ backgroundColor:"white"}}>
+    <div>
         <div>
             <FirstImg src={ourstory}alt="ourstory"/>
         </div>
@@ -159,7 +159,7 @@ const OurStory = () => {
                 </Stdiv>   
             </Story>
         </Storydiv>
-        <div style={{ backgroundColor:"#00a877"}}>
+        <div style={{ backgroundColor:"#648c11"}}>
             <h1 style={{fontFamily: "cursive",color:"rgb(240, 240, 240)"}}>NOTEWORTHY WORDS BY THE FOUNDERS</h1>
             <FounderDiv>
                 <Founder>
