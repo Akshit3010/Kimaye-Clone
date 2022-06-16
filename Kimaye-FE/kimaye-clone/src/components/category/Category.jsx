@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +9,7 @@ import styles from "./Ap.module.css";
 
 export const Category = () => {
   const { category } = useParams();
-  console.log(category);
+  // console.log(category);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoading, isError, categoryData } = useSelector(
@@ -24,13 +25,16 @@ export const Category = () => {
     <>
       <div className={styles.category}>
         <div onClick={() => handlenav("allfruits")}>ALL FRUITS</div>
-        <div onClick={() => handlenav("freshcuts")}>FRESH CUTS</div>
-        <div onClick={() => handlenav("fruitcombos")}>FRUIT COMBOS</div>
-        <div onClick={() => handlenav("giftbykimaye")}>GIFTS BY KIMAYE</div>
+        <div onClick={() => handlenav("cut-fruits")}>FRESH CUTS</div>
+        <div onClick={() => handlenav("combo-fruits")}>FRUIT COMBOS</div>
+        <div onClick={() => handlenav("gifts")}>GIFTS BY KIMAYE</div>
       </div>
       <div className={styles.routes}>
         <p>
-          <i className="fa-solid fa-house"></i>Home / {category}
+          <span className={styles.homeRoute}>
+            <i className="fa-solid fa-house"></i> Home /
+          </span>{" "}
+          {category}
         </p>
         <p>Showing {categoryData.length} result</p>
       </div>
@@ -41,7 +45,7 @@ export const Category = () => {
         ) : isError ? (
           <h1>Error occured while loading data.....</h1>
         ) : (
-          categoryData.map((elem) => <ProductCard key={elem.id} {...elem} />)
+          categoryData.map((elem) => <ProductCard key={elem._id} {...elem} />)
         )}
       </div>
     </>

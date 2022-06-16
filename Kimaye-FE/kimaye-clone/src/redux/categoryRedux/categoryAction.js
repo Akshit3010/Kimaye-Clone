@@ -7,7 +7,7 @@ export const ADD_CART = "ADD_CART";
 export const getRequestBycat = (dispatch, category) => {
   dispatch({ type: IS_LOADING });
   axios
-    .get(`http://localhost:8080/${category}`)
+    .get(`https://kimaye-backend.herokuapp.com/${category}`)
     .then(({ data }) => {
       dispatch({
         type: GET_DATA_BY_CATEGORY,
