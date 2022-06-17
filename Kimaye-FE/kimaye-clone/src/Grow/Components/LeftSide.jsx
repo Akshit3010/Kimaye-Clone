@@ -11,14 +11,29 @@ const LeftSide = () => {
           <Blog key={e.id}>
             {e.image1 ? (
               <Link to='/blogdetails'>
-                <BlogImage src={e.image1} alt='' />
+                <BlogImage
+                  src={e.image1}
+                  alt=''
+                  onClick={() => {
+                    // console.log(e.id)
+                    localStorage.clear();
+                    localStorage.setItem('blogData', JSON.stringify(e.id));
+                  }}
+                />
               </Link>
             ) : (
               ''
             )}
             {e.p1Title ? (
               <Link to='/blogdetails'>
-                <Title>{e.p1Title}</Title>
+                <Title
+                  onClick={() => {
+                    // console.log(e.id)
+                    localStorage.clear();
+                    localStorage.setItem('blogData', JSON.stringify(e.id));
+                  }}>
+                  {e.p1Title}
+                </Title>
               </Link>
             ) : (
               ''

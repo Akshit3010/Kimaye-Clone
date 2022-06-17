@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BlogData } from './BlogData/BlogData';
@@ -27,9 +27,14 @@ const Top = styled.p`
   background-color: #98cb4c;
 `;
 
-const BlogDetails = (props) => {
-  let data = BlogData[0];
-  console.log(data);
+const BlogDetails = () => {
+  let id = JSON.parse(localStorage.getItem('blogData')) || '';
+  console.log(id);
+  let data = BlogData[id-1];
+  useEffect(()=> {
+  },[id])
+  
+  // console.log(data);
   return (
     <Bottom>
       <Main>

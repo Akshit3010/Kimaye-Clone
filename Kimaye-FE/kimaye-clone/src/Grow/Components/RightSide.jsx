@@ -19,7 +19,13 @@ const RightSide = () => {
         {BlogData.map((e) => {
           return (
             <Link to='/blogdetails'>
-              <RecentPost key={e.id}>
+              <RecentPost
+                key={e.id}
+                onClick={() => {
+                  // console.log(e.id)
+                  localStorage.clear();
+                  localStorage.setItem('blogData', JSON.stringify(e.id));
+                }}>
                 <RecentImg src={e.image1} alt='' />
                 <p>{e.p1Title}</p>
               </RecentPost>
