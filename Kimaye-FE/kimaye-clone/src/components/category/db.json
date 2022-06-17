@@ -1,0 +1,211 @@
+{
+  "allfruits": [
+    {
+      "id": 1,
+      "title": "Kimaye Dasheri Mangoes (Pack of 3,6 &12)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Dasheri_360x.jpg?v=1623855977",
+      "description": "Dasheri mangoes are long and oval shaped, with light green to yellow-green skin and turn golden yellow on ripening. Dasheri mangoes have a light yellow colored flesh with a medium-sized stone. This Mango variety is known for its very sweet and aromatic flavor.",
+      "origin": "India",
+      "price": 209,
+      "discount":10
+    },
+    {
+      "id": 2,
+      "title": "Kimaye Cherry- Blueberry Combo",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Cherry--_-blueberry.progressive.jpg?v=1654851019",
+      "description": "What do you call a Combo which has both Blueberries and Cherries? Delicious right?",
+      "origin": "India",
+      "price": 429
+    },
+    {
+      "id": 3,
+      "title": "Kimaye Litchi (500g)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Lychee_360x.jpg?v=1622208039",
+      "description": "Litchis are sweet, juicy, and robust.The pearl-white pulp is covered in juice and houses a dark-brown seed at its center.The firm yet gelatinous pulp is chewy and juicy with a sweet, fruity flavor like a cross of strawberry and watermelon with a touch of pineapple. Litchis are also fragrant with a tropical scent and a hint of roses.",
+      "origin": "India",
+      "price": 230
+    },
+    {
+      "id": 4,
+      "title": "Kimaye Jamun (250 gm)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/image.progressive.jpg?v=1620889338",
+      "description": "Jamun are oblong shaped berries with a dark red to dark black colored skin with starkly contrasting pinkish- white flesh. The flesh is extremely juicy and has a flavor that combines sweet and tart with a slightly astringent aftertaste. The dark-colored skin leaves a stain on the lips and mouth that can last for several hours.",
+      "origin": "Maharastar, India",
+      "price": 169
+    },
+    {
+      "id": 5,
+      "title": "Kimaye Fresh Dates (Pack of 250g & 500g)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Date_d427b5d6-08d3-4f16-8220-a7d3409bbaed_360x.jpg?v=1624886493",
+      "description": "Fresh dates grow by the dozens on long yellow stems. They are typically harvested during the semi-ripe stage and look almost like a bunch of giant red grapes. Each date has an elongated oval shape. They have a deep red to burgundy skin with a bright white, crisp flesh, like that of an apple with one long, central pit. The flesh is fiber-less and sweet with hints of cinnamon and sugar cane.",
+      "origin": "India",
+      "price": 102
+    },
+    {
+      "id": 6,
+      "title": "Kimaye Cherries (Indian) (250g)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Cherry-cover_29fec80d-0bed-4148-808c-0707021b5db3_360x.jpg?v=1625033744",
+      "description": "The perfect cherry is rounded with a slight heart shape and dimple at its stem end. The skin is thin with a deep red color and a brilliant sheen. Cherry's flavor is sweet and pleasantly tarty, mimicking notes of currant, plum, raspberry and blackberry.",
+      "origin": "India",
+      "price": 105,
+      "discount":10
+    },
+    {
+      "id": 7,
+      "title": "Kimaye Honeydew Melon (1 pc)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/HoneydewMeloncover_360x.jpg?v=1654761963",
+      "description": "Honeydew melons are small to medium fruits, the rind develops a waxy, velvety surface with a slightly sticky consistency, Underneath the surface, the flesh appears in shades of pale green or white green hues, depending on the variety, and thickness, density. Honeydew melons emit a faint, sweet aroma and will feel heavy for their size, yielding under gentle pressure around the blossom end when ripe. The melons contain approximately 16 Brix, a measurement of sugar levels within the flesh, contributing to the melon’s delicate, sweet, floral, and subtly fruity flavor.",
+      "origin": "India",
+      "price": 305
+    },
+    {
+      "id": 8,
+      "title": "Kimaye Apricots (Pack of 250g & 500g)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Apricot-cover_360x.jpg?v=1624704940",
+      "description": "Apricots are stone fruits, characterized by their thin skin, pulpy middle, and a hard central shell enclosing a pit. They have a smooth and velvety outer skin with a rosy blush, and can range in color from pale yellow to golden, depending on how ripe they are. The flesh is juicy and sweet. The taste is often a mix of peach and plum.",
+      "origin": "India",
+      "price": 95
+    },
+    {
+      "id": 9,
+      "title": "Kimaye Alphonso Mangoes",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/MangoCover_908c34e6-fcdb-4564-918e-48d7baeaf628_360x.jpg?v=1645445684",
+      "description": "Alphonso, the beloved mango variety known for it's matchless aroma and flavour, is often given the epithet The King of Mangoes. Also known as Hapus locally, the variety is a perfect serve for the table. Each Kimaye Alphonso mango is GI tagged, ripened carbide-free, traceable to it's farmer and source and comes with a minimum guaranteed weight and size.",
+      "origin": "Ratnagiri,India",
+      "price": 193
+    },
+    {
+      "id": 10,
+      "title": "Kimaye Kesar Mangoes (Pack of 3 & 6)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/cover-Mango_5fc755ae-5f58-4127-b1f9-30bceaa56e3d_360x.jpg?v=1620127827",
+      "description": "Kesar is an intensely sweet mango that cannot fail to be satisfying, and flavorsome. Often known as Gir Kesar, grown in a specific region around Gir forest is popularly known to have been the favorite of the Nawabs from Junagadh.",
+      "origin": "India",
+      "price": 193,
+      "discount":10
+    }
+  ],
+  "freshcuts":[
+    {
+      "id": 11,
+      "title": "Pomegranate Seeds (Arils Cup)125g",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/47dfb7d1-d8d3-4c96-bda9-7dc85dfdec51_360x.png?v=1613364164",
+      "description": "Kimaye Arils are non-frozen, non-dried, fresh Pomegranate seeds. Pop open the cup to enjoy arils as fresh as a pomegranate opened at your home.",
+      "origin": "India",
+      "price": 55,
+      "weight":"NA"
+    },
+    {
+      "id": 12,
+      "title": "PomegraCoconut Chunks Cup (100g)nate Seeds (Arils Cup)125g",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/24d0f9c9-fe83-40a3-84ab-300e73e4ff8d_540x.png?v=1611811511",
+      "description": "Kimaye Coconut Chunks are fresh coconut cubes extracted from mature coconuts. A perfect replacement for your on-the-go snack.",
+      "origin": "India",
+      "price": 51,
+      "weight":100
+    },
+    {
+      "id": 13,
+      "title": "Grated Coconut Punnet",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/0fce7fd6-f30e-45df-8c52-234acbd62023_360x.png?v=1611811509",
+      "description": "Kimaye freshly grated coconut is as fresh as it could be. Avoid the hassle of grating coconut in your kitchen! You can use this to make chutneys, use for curries or garnishing.",
+      "origin": "India",
+      "price": 51,
+      "weight":100
+    },
+    {
+      "id": 14,
+      "title": "Kimaye Arils-Coco Cup (125g)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/62cef687-de59-4f5a-acf3-4df1238c3e29-min_360x.png?v=1614324446",
+      "description": "A perfect blend of red and white, Kimaye Arils-Coco Cup contains Arils and Grated Coconut. Kimaye Arils are non-frozen, non-dried, fresh pomegranate seeds. Kimaye freshly grated coconut is as fresh as it could be. Forget the hassle of peeling pomegranates or grating coconut in your kitchen, coz' we got you covered with this yummy ready to eat treat!  ",
+      "origin": "India",
+      "price": 55,
+      "weight":125
+    }
+  ],
+  "fruitcombos":[
+    {
+      "id": 21,
+      "title": "Kimaye Litchi-Kesar Combo",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/litchi--_-keasr_540x.jpg?v=1654850892",
+      "description": "Kesar is an intensely sweet mango that cannot fail to be satisfying, and flavorsome. Often known as Gir Kesar, grown in a specific region around Gir forest. While the juicy litchis are are sweet, juicy, and robust. This sweet and super juicy combo is just what your palette needs.",
+      "origin": "India",
+      "price": 393,
+      "discount":10
+    },
+    {
+      "id": 22,
+      "title": "Kimaye Cherry- Blueberry Combo",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Cherry--_-blueberry_540x.jpg?v=1654851019",
+      "description": "What do you call a Combo which has both Blueberries and Cherries? Delicious right?This combo is a mix of two of our personal favourites and Kimaye Cherries and Blueberries. This is sure to give you a taste of the sweet red Cherries all the way from the north whereas the blueberries bring their sweet-tart taste from their Southern American origin. Enjoy them while they are still in season.",
+      "origin": "India",
+      "price": 578,
+      "discount":10
+    },
+    {
+      "id": 23,
+      "title": "Kimaye Litchi -Peach Combo",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/peach--_-litchi_540x.jpg?v=1654850921",
+      "description": "The Kimaye Litchi-Peach Combo is a juicy combination that is power packed with nutrition and taste.While the Litchi is sweet and juicy, Peaches balance it off with their subtly sweet flavour and adds a floral aroma on biting into it.",
+      "origin": "India",
+      "price": 277,
+      "discount":10
+    },
+    {
+      "id": 24,
+      "title": "Kimaye Plum-Peach Combo",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/peach--_-Plum_540x.jpg?v=1654851067",
+      "description": "Beat the heat this summer with the Kimaye Plum-Peach combo. Both the fruits contain good amounts of water so they also help you stay cool during the scorching summer heat.Peaches and Plums are both loaded with fibre and are rich in antioxidants.",
+      "origin": "India",
+      "price": 120,
+      "discount":10
+    }
+
+  ],
+  "giftbykimaye":[
+
+    {
+      "id": 33,
+      "title": "Fruit Box by Kimaye (Strength)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/2I8A7793.progressive.jpg?v=1631346990",
+      "description": "A Fruit box curated specially for you and your loved ones to embrace the strength of the bonds .This Fruit Gift Box by Kimaye consists of the following fruits",
+      "origin": "India",
+      "price": 1800,
+      "packOf":["4 pcs of Green Kiwi (0.4 kg)", "4 pcs of Washington Apples (0.7 ~0.8kg)",
+                "4 pcs of Pomegranates (1 kg)", "1 punnet of Blueberries (125 g)",
+                "1 punnet of Red Globe Grapes (400 g)"]
+    },
+    {
+      "id": 34,
+      "title": "Fruit Box by Kimaye (Adore)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/2I8A7812.progressive.jpg?v=1631347707",
+      "description": "A Fruit box curated specially for you and your loved ones packed with love and colors of fruits. This Fruit Gift Box by Kimaye consists of the following fruits",
+      "origin": "India",
+      "price": 2000,
+      "packOf":["4 pcs of Green Kiwi (0.4 kg)", "4 pcs of Washington Apples (0.7 ~0.8kg)",
+                "4 pcs of Pomegranates (1 kg)", "1 punnet of Blueberries (125 g)",
+                "1 punnet of Red Globe Grapes (400 g)"]
+    },
+    {
+      "id": 35,
+      "title": "Fruit Box by Kimaye (Cherish)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/2I8A7821.progressive.jpg?v=1631350656",
+      "description": "A Fruit box curated specially for you and your loved ones filled with all things to cherish and packed with love and health in abundance. This Fruit Gift Box by Kimaye consists of the following fruits",
+      "origin": "India",
+      "price": 2000,
+      "packOf":["4 pcs of Green Kiwi (0.4 kg)", "4 pcs of Washington Apples (0.7 ~0.8kg)",
+                "4 pcs of Pomegranates (1 kg)", "1 punnet of Blueberries (125 g)",
+                "1 punnet of Red Globe Grapes (400 g)"]
+    },
+    {
+      "id": 36,
+      "title": "Fruit Box by Kimaye (Seasonal)",
+      "image": "https://cdn.shopify.com/s/files/1/0449/5225/6667/products/I8A9400copy.progressive.jpg?v=1651844098",
+      "description": "A Fruit box with an assortment of our seasons best fruits. This Fruit Gift Box by Kimaye consists of the following fruits",
+      "origin": "India",
+      "price": 1200,
+      "packOf":["4 pcs of Green Kiwi (0.4 kg)", "4 pcs of Washington Apples (0.7 ~0.8kg)",
+                "4 pcs of Pomegranates (1 kg)", "1 punnet of Blueberries (125 g)",
+                "1 punnet of Red Globe Grapes (400 g)"]
+    }
+  ]
+}
