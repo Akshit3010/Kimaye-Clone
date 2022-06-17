@@ -33,20 +33,20 @@ const NavbarPage = () => {
         </NavDropdown>
 
         <NavDropdown title="LEARN">
-          <NavDropdown.Item href="ourstory">OUR STORY</NavDropdown.Item>
+          <NavDropdown.Item href="/ourstory">OUR STORY</NavDropdown.Item>
           <NavDropdown.Item href="whykimaye">WHY KIMAYE</NavDropdown.Item>
-          <NavDropdown.Item href="learn">TRACEABILITY</NavDropdown.Item>
-          <NavDropdown.Item href="learn">BEYOND FRUITS</NavDropdown.Item>
+          <NavDropdown.Item href="">TRACEABILITY</NavDropdown.Item>
+          <NavDropdown.Item href="">BEYOND FRUITS</NavDropdown.Item>
         </NavDropdown>
 
         <Nav.Link href="grow">GROW</Nav.Link>
       </Nav>
 
       <Nav>
-        <NavLink href="home">
+        <NavLink href="/">
           <img
             className="logo"
-            href="home"
+            href="/"
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/website-logo_400x.png?v=1596288204"
           />
         </NavLink>
@@ -59,10 +59,10 @@ const NavbarPage = () => {
         <NavLink>
           <i class="fa-solid fa-magnifying-glass"></i>
         </NavLink>
-        <NavLink href="cart">
+        <NavLink href="login">
           <i class="fa-solid fa-user"></i>
         </NavLink>
-        <NavLink href="login">
+        <NavLink href="cart">
           <i class="fa-solid fa-bag-shopping"></i>
         </NavLink>
       </Nav>
