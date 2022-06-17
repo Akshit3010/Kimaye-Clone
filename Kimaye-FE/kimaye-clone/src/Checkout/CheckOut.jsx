@@ -72,8 +72,8 @@ const Checkout = () => {
                       <h4>Shipping address</h4>
                       <Long name="country" type="text"   placeholder="COUNTRY/REGION" required />
                       <br /> <br/>
-                      <Short name="firstName" type="text"     placeholder="First Name" required />
-                      <Short name="lastName"  type="text"   placeholder="Last Name" required />
+                      <Short name="firstName" type="text" placeholder="First Name" required />
+                      <Short name="lastName"  type="text" placeholder="Last Name" required />
                       <br /> <br/>
                       <Long name="address"  type="text"   placeholder="Address" required />
                       <br/> <br/>
