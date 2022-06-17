@@ -1,14 +1,15 @@
 import "./App.css";
-import OurStory from "./Learn/OurStory";
-import WhyKimaye from "./Learn/WhyKimaye";
+import CheckOut from "./Checkout/CheckOut";
+// import OurStory from "./Learn/OurStory";
+// import WhyKimaye from "./Learn/WhyKimaye";
 
 function App() {
   return <div className="App">
 
      {/* <OurStory/> */}
 
-     <WhyKimaye/>
-
+     {/* <WhyKimaye/> */}
+      <CheckOut/>
 
 
   </div>;
