@@ -1,15 +1,11 @@
+import Cart from "./components/Cart";
+// import OurStory from "./Learn/OurStory";
 import "./App.css";
-import OurStory from "./Learn/OurStory";
+import { MainRouter } from "./routers/MainRouter";
 
 function App() {
   return <div className="App">
-
-     <OurStory/>
-
-
-
-
-
+    <MainRouter/>
   </div>;
 }
 
