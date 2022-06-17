@@ -26,6 +26,7 @@ const Div1 = styled.div`
   opacity: 1;
   z-index: 1;
   color: rgb(171, 171, 59);
+  overflow:hiden;
 
   img{
     cursor: pointer;
@@ -91,6 +92,7 @@ const Div3 = styled.div`
     height: 92%;
     margin-top: 50px;
     text-align: left;
+    overflow:hidden;
   }
   img {
     width: 100%;
@@ -263,37 +265,45 @@ const MainHome = () => {
       {/* 3rd Part--------------------------------------------------------> */}
       <Div2>
         <div>
-          <img
+         <div style={{overflow:"hidden", borderRadius:"30px"}}>
+         <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-1-min_720x.png?v=1614338437"
             alt=""
           />
+         </div>
           <P1>ALL FRUITS</P1>
           <P2>Pick and choose from a wide range of delicious fruits</P2>
           <button>Shop Now</button>
         </div>
         <div>
-          <img
+         <div style={{overflow:"hidden", borderRadius:"30px"}}>
+         <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-3-min_720x.png?v=1614338730"
             alt=""
           />
+         </div>
           <P1>FRESH CUTS</P1>
           <P2>We want to spoon-feed you… quite literally</P2>
           <button>Shop Now</button>
         </div>
         <div>
+        <div style={{overflow:"hidden", borderRadius:"30px"}}>
           <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-2-min_720x.jpg?v=1614339080"
             alt=""
           />
+          </div>
           <P1>FRUIT COMBOS</P1>
           <P2>Indulge in fruit combinations created by us</P2>
           <button>Shop Now</button>
         </div>
         <div>
+        <div style={{overflow:"hidden", borderRadius:"30px"}}>
           <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/Untitled_design_6_720x.png?v=1634808861"
             alt=""
           />
+          </div>
           <P1>GIFTS BY KIMAYE</P1>
           <P2>Healthy & memorable gifts for your loved ones</P2>
           <button>Shop Now</button>
@@ -302,6 +312,7 @@ const MainHome = () => {
       {/* 4th Part--------------------------------------------------------> */}
       <Div3>
         <div>
+        
           <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/kimahi_570x_2db87855-9260-47c2-a80e-3759af77dbea_670x.png?v=1622009438"
             alt=""
