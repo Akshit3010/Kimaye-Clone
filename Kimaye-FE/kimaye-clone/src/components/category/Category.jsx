@@ -19,7 +19,7 @@ export const Category = () => {
     getRequestBycat(dispatch, category);
   }, [dispatch, category]);
   const handlenav = (category) => {
-    navigate(`/${category}`);
+    navigate(`/collections/${category}`);
   };
   return (
     <>
