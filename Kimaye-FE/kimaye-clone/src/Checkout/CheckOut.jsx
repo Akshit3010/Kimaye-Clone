@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Check = styled.div`
   display: flex;
-  width: 80%;
+  width: 85%;
   margin: auto;
   text-align: justify;
 `;

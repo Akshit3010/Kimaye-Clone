@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Pc.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addTocart } from "../../redux/categoryRedux/categoryAction";
@@ -17,8 +17,10 @@ export const ProductCard = ({
   const [btnTogle, setBtntogle] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleClick = () => {
-    navigate(`fruits/${id}`);
+  const {category} = useParams();
+  // console.log(category);
+  const handleClick = (id) => {
+    navigate(`/collections/${category}/${id}`);
   };
   const handleCart = (
     title,
