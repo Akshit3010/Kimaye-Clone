@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles/navbar.css";
+import "./styles/navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
 import Box from "@mui/material/Box";
@@ -69,6 +70,8 @@ const NavbarPage = () => {
             className="logo"
             href="/"
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/website-logo_400x.png?v=1596288204"
+            alt=""
+
           />
         </NavLink>
       </Nav>

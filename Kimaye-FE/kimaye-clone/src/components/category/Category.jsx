@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { getRequestBycat } from "../../redux/categoryRedux/categoryAction";
 import { ProductCard } from "../productCard/ProductCard";
 import styles from "./Ap.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 
 export const Category = () => {
   const { category } = useParams();
