@@ -6,7 +6,9 @@ import Cart from '../components/Cart'
 import Ourstory from '../Learn/Ourstory'
 import WhyKimaye from '../Learn/WhyKimaye'
 import Checkout from "../Checkout/CheckOut";
-import { Login } from "../components/Login/Login";
+import ProductDetails from "../components/productDetails/ProductDetails";
+import Grow from "../components/Grow/Grow";
+import BlogDetails from "../components/Grow/BlogDetails";
 
 export const MainRouter = () => {
   return (
@@ -18,7 +20,9 @@ export const MainRouter = () => {
       <Route path="/checkout" element={<Checkout/>} ></Route>
       <Route path="/ourstory" element={<Ourstory/>} ></Route>
       <Route path="/whykimaye" element={<WhyKimaye/>} ></Route>
-      <Route path="/login" element={<Login/>} ></Route>
+      <Route path="/collections/:category/:id" element={<ProductDetails/>} ></Route>
+      <Route path="/grow" element={<Grow/>} ></Route>
+      <Route path="/blogdetails" element={<BlogDetails/>}></Route>
     </Routes>
   );
 };
