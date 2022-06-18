@@ -7,6 +7,7 @@ import pic1 from "../components/last_img/pic1.jpg";
 import pic2 from "../components/last_img/pic2.jpg";
 import pic3 from "../components/last_img/pic3.jpg";
 import pic4 from "../components/last_img/pic4.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Div1 = styled.div`
   // *, *:before, *:after {
@@ -221,6 +222,7 @@ const Div6 = styled.div`
 `;
 
 const MainHome = () => {
+  const navigate= useNavigate();
   return (
     <Div1>
       {/* 1st Part--------------------------------------------------------> */}
@@ -267,7 +269,7 @@ const MainHome = () => {
       {/* 3rd Part--------------------------------------------------------> */}
       <Div2>
         <div>
-          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+          <div onClick={()=>navigate(`/collections/allfruits`)} style={{ overflow: "hidden", borderRadius: "30px" }}>
             <img
               src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-1-min_720x.png?v=1614338437"
               alt=""
@@ -275,10 +277,10 @@ const MainHome = () => {
           </div>
           <P1>ALL FRUITS</P1>
           <P2>Pick and choose from a wide range of delicious fruits</P2>
-          <button>Shop Now</button>
+          <button onClick={()=>navigate(`/collections/allfruits`)}>Shop Now</button>
         </div>
         <div>
-          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+          <div onClick={()=>navigate(`/collections/cut-fruits`)}style={{ overflow: "hidden", borderRadius: "30px" }}>
             <img
               src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-3-min_720x.png?v=1614338730"
               alt=""
@@ -286,10 +288,10 @@ const MainHome = () => {
           </div>
           <P1>FRESH CUTS</P1>
           <P2>We want to spoon-feed you… quite literally</P2>
-          <button>Shop Now</button>
+          <button onClick={()=>navigate(`/collections/cut-fruits`)}>Shop Now</button>
         </div>
         <div>
-          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+          <div onClick={()=>navigate(`/collections/combo-fruits`)}style={{ overflow: "hidden", borderRadius: "30px" }}>
             <img
               src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-2-min_720x.jpg?v=1614339080"
               alt=""
@@ -297,10 +299,10 @@ const MainHome = () => {
           </div>
           <P1>FRUIT COMBOS</P1>
           <P2>Indulge in fruit combinations created by us</P2>
-          <button>Shop Now</button>
+          <button onClick={()=>navigate(`/collections/combo-fruits`)}>Shop Now</button>
         </div>
         <div>
-          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+          <div onClick={()=>navigate(`/collections/gifts`)} style={{ overflow: "hidden", borderRadius: "30px" }}>
             <img
               src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/Untitled_design_6_720x.png?v=1634808861"
               alt=""
@@ -308,7 +310,7 @@ const MainHome = () => {
           </div>
           <P1>GIFTS BY KIMAYE</P1>
           <P2>Healthy & memorable gifts for your loved ones</P2>
-          <button>Shop Now</button>
+          <button onClick={()=>navigate(`/collections/gifts`)}>Shop Now</button>
         </div>
       </Div2>
       {/* 4th Part--------------------------------------------------------> */}
