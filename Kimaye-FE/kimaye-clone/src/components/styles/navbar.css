@@ -1,7 +1,19 @@
-.logo{
-    height: 40px;
+.logo {
+  height: 40px;
 }
 
-.bg-myColor{
-    background-color: #EEEEEA
+.bg-myColor {
+  background-color: #eeeeea;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  color: #111 !important;
+}
+
+.nav-link > a {
+  color: black;
+}
+
+.navbar-nav > a {
+  color: #111;
 }
