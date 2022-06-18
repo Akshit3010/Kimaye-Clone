@@ -11,16 +11,17 @@ export const ProductCard = ({
   description,
   origin,
   price,
-  id,
+  _id,
   discount,
 }) => {
   const [btnTogle, setBtntogle] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {category} = useParams();
+  const { category } = useParams();
   // console.log(category);
-  const handleClick = (id) => {
-    navigate(`/collections/${category}/${id}`);
+  const handleClick = (_id) => {
+    console.log(_id);
+    navigate(`/collections/${category}/${_id}`);
   };
   const handleCart = (
     title,
@@ -48,7 +49,7 @@ export const ProductCard = ({
       <div className={styles.imgDiv}>
         {discount && <div className={styles.valuepackTag}>VALUE PACK</div>}
 
-        <img onClick={handleClick} src={image} alt={title} />
+        <img onClick={() => handleClick(_id)} src={image} alt={title} />
         {!btnTogle ? (
           <div
             onClick={() => setBtntogle(!btnTogle)}
@@ -60,7 +61,15 @@ export const ProductCard = ({
         ) : (
           <div
             onClick={() =>
-              handleCart(title, image, description, origin, price, id, discount)
+              handleCart(
+                title,
+                image,
+                description,
+                origin,
+                price,
+                _id,
+                discount
+              )
             }
             className={styles.CtoSbtn}
           >

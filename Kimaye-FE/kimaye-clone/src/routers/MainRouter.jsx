@@ -20,7 +20,7 @@ export const MainRouter = () => {
       <Route path="/checkout" element={<Checkout/>} ></Route>
       <Route path="/ourstory" element={<Ourstory/>} ></Route>
       <Route path="/whykimaye" element={<WhyKimaye/>} ></Route>
-      <Route path="/collections/:category/:id" element={<ProductDetails/>} ></Route>
+      <Route path="/collections/:category/:_id" element={<ProductDetails/>} ></Route>
       <Route path="/grow" element={<Grow/>} ></Route>
       <Route path="/blogdetails" element={<BlogDetails/>}></Route>
     </Routes>

@@ -7,6 +7,7 @@ import Drawer from "@mui/material/Drawer";
 import { Login } from "./Login/Login";
 import { CartModel } from "./cartModel/CartModel";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const dropdowns = {
   display: "flex",
@@ -16,13 +17,11 @@ const dropdowns = {
 
 const NavbarPage = () => {
   const [login_cart, setlogin_cart] = useState("");
+  const {cartData} = useSelector((state)=>state.AllProductReducer)
   // Function and Variable for Model open and close
   const [state, setState] = React.useState(false);
-
   const [loggedIn, setLoggedin] = useState(false);
-
   const userData = JSON.parse(localStorage.getItem("user"));
-
   const loginORcart = (who) => {
     setlogin_cart(who);
     setState(true);
@@ -131,7 +130,7 @@ const NavbarPage = () => {
           </>
         )}
         <NavLink onClick={() => loginORcart("cart")}>
-          <i class="fa-solid fa-bag-shopping"></i>
+          <i class="fa-solid fa-bag-shopping"><span style={{backgroundColor:"white",position:"absolute"}}>{cartData.length}</span></i>
         </NavLink>
         {/* *********** */}
         <Drawer anchor={"right"} open={state} onClose={() => setState(false)}>
