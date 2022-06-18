@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./styles/navbar.css";
 import "./styles/navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
@@ -7,6 +6,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Login } from "./Login/Login";
 import { CartModel } from "./cartModel/CartModel";
+import axios from "axios";
 
 const dropdowns = {
   display: "flex",
@@ -18,14 +18,29 @@ const NavbarPage = () => {
   const [login_cart, setlogin_cart] = useState("");
   // Function and Variable for Model open and close
   const [state, setState] = React.useState(false);
+
+  const [loggedIn, setLoggedin] = useState(false);
+
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   const loginORcart = (who) => {
     setlogin_cart(who);
-    setState(true)
+    setState(true);
   };
-  
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setLoggedin(false);
+  };
+
   const list = () => (
     <Box sx={{ width: 350 }} role="presentation">
-      {login_cart === "login" ? <Login setState={setState} /> : <CartModel setState={setState}/>}
+      {login_cart === "login" ? (
+        <Login setState={setState} />
+      ) : (
+        <CartModel setState={setState} />
+      )}
     </Box>
   );
   // ----------end--------->
@@ -71,7 +86,6 @@ const NavbarPage = () => {
             href="/"
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/website-logo_400x.png?v=1596288204"
             alt=""
-
           />
         </NavLink>
       </Nav>
@@ -85,11 +99,38 @@ const NavbarPage = () => {
           {" "}
           <i class="fa-solid fa-magnifying-glass"></i>
         </NavLink>
-        <NavLink onClick={()=>loginORcart("login")}>
+        <NavLink
+          onClick={() => {
+            if (!userData) {
+              loginORcart("login");
+            } else if (userData.token) {
+              setLoggedin(true);
+            }
+          }}
+        >
           {" "}
           <i class="fa-solid fa-user"></i>
         </NavLink>
-        <NavLink onClick={()=>loginORcart("cart")}>
+        {loggedIn && (
+          <>
+            <div className="loggedIn">
+              <div className="close">
+                {" "}
+                <p onClick={() => setLoggedin(!loggedIn)}>X</p>{" "}
+              </div>
+              <p>
+                {" "}
+                <b>User:</b> {userData.firstName}{" "}
+              </p>
+              <p>
+                {" "}
+                <b>Email:</b> {userData.email}{" "}
+              </p>
+              <button onClick={() => logout()}>Logout</button>
+            </div>
+          </>
+        )}
+        <NavLink onClick={() => loginORcart("cart")}>
           <i class="fa-solid fa-bag-shopping"></i>
         </NavLink>
         {/* *********** */}

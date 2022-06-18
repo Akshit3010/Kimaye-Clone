@@ -1,15 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
-export const Login = ({setState}) => {
+export const Login = ({ setState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signUpdata, setsignUpdata] = useState({});
   const [togle, setTogle] = useState(false);
 
+  const notify = (msg) => toast(msg);
+  const error = (msg) => toast.error(msg);
+
   const handleLogin = () => {
-    console.log({ email, password });
+    axios
+      .post("https://kimaye-backend.herokuapp.com/auth/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        if (res.data.message) {
+          notify(res.data.message.toUpperCase());
+          localStorage.setItem("user", JSON.stringify(res.data.userLogin));
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+        }
+        console.log(res);
+      })
+      .catch((err) => {
+        if (err.response.status === 422) {
+          error(err.response.data.error.toUpperCase());
+        }
+      });
   };
 
   const handleChange = (e) => {
@@ -19,14 +42,28 @@ export const Login = ({setState}) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(signUpdata);
+    axios
+      .post("https://kimaye-backend.herokuapp.com/auth/signup", signUpdata)
+      .then((res) => {
+        if (res.data.message) {
+          notify(res.data.message.toUpperCase());
+          setTogle(!togle);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 422) {
+          error(err.response.data.error.toUpperCase());
+        }
+      });
   };
 
   return (
     <div className={styles.outerDiv}>
       <div className={styles.heading}>
+        <ToastContainer />
+
         <h3>SIGN IN</h3>
-        <p onClick={()=>setState(false)}>
+        <p onClick={() => setState(false)}>
           close <i className="fa-solid fa-xmark"></i>
         </p>
       </div>
@@ -39,6 +76,7 @@ export const Login = ({setState}) => {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="on"
             />
           </div>
           <div>
@@ -81,22 +119,42 @@ export const Login = ({setState}) => {
             <div>
               <label htmlFor="First Name">First Name*</label>
               <br />
-              <input name="firstName" type="text" onChange={handleChange} />
+              <input
+                name="firstName"
+                type="text"
+                onChange={handleChange}
+                required
+              />
             </div>
             <div>
               <label htmlFor="last name">Last Name*</label>
               <br />
-              <input name="lastName" type="text" onChange={handleChange} />
+              <input
+                name="lastName"
+                type="text"
+                onChange={handleChange}
+                required
+              />
             </div>
             <div>
               <label htmlFor="email">Email id*</label>
               <br />
-              <input name="email" type="email" onChange={handleChange} />
+              <input
+                name="email"
+                type="email"
+                onChange={handleChange}
+                required
+              />
             </div>
             <div>
               <label htmlFor="email">Password*</label>
               <br />
-              <input name="password" type="password" onChange={handleChange} />
+              <input
+                name="password"
+                type="password"
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className={styles.loginBtn} onClick={handleSignup}>
               SIGNUP
