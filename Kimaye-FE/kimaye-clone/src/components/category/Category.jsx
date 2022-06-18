@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getRequestBycat } from "../../redux/categoryRedux/categoryAction";
 import { ProductCard } from "../productCard/ProductCard";
 import styles from "./Ap.module.css";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 export const Category = () => {
   const { category } = useParams();
@@ -41,7 +43,9 @@ export const Category = () => {
       {/* map the data here */}
       <div className={styles.allfruitsContainer}>
         {isLoading ? (
-          <h1>Loading.....</h1>
+          <div style={{ height: "500px" }}>
+            <CircularProgress style={{ marginLeft: "520px" }} />
+          </div>
         ) : isError ? (
           <h1>Error occured while loading data.....</h1>
         ) : (

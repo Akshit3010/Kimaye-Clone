@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import whykimaye from "./whykimaye.png";
-// import promise from "./promise.png";
+import whykimaye from "./whykimaye.png";
+import promise from "./promise.png";
 const FirstImg = styled.img`
   margin: auto;
   width: 100%;
@@ -70,7 +70,7 @@ const WhyKimaye = () => {
   return (
     <div>
       <div>
-        <FirstImg src={"whykimaye"} alt="" />
+        <FirstImg src={whykimaye} alt="" />
       </div>
       <div>
         <img
@@ -135,7 +135,7 @@ const WhyKimaye = () => {
         </DscDiv>
       </div>
       <div>
-        <FirstImg src={"promise"} alt></FirstImg>
+        <FirstImg src={promise} alt></FirstImg>
       </div>
       <div style={{ backgroundColor: "#648c11" }}>
         <h1 style={{ fontFamily: "cursive", color: "whitesmoke" }}>

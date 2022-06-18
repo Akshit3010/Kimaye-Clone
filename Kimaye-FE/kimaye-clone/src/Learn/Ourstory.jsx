@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import ourstory from "./ourstory.png";
+import ourstory from "./ourstory.png";
 
 const FirstImg = styled.img`
   margin: auto;
@@ -95,7 +95,7 @@ const OurStory = () => {
   return (
     <div style={{ backgroundColor: "white" }}>
       <div>
-        <FirstImg src={"ourstory"} alt="ourstory" />
+        <FirstImg src={ourstory} alt="ourstory" />
       </div>
       <SecPara>
         <Paradiv>
