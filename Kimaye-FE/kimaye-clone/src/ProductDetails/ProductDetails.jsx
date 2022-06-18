@@ -21,9 +21,11 @@ const Main = styled.div`
 `;
 const ImageDiv = styled.div`
   overflow: hidden;
+  border-radius: 30px;
 `;
 const Image = styled.img`
   transition: all 0.5s ease-in-out;
+  border-radius: 30px;
   &:hover {
     transform: scale(1.1, 1.1);
     cursor: pointer;
