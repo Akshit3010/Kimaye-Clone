@@ -26,14 +26,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  token: String,
 });
 
 //password hashing
@@ -51,7 +44,7 @@ UserSchema.methods.generateAuthToken = async function () {
       { _id: this._id.toString() },
       process.env.SECRET_KEY
     );
-    this.tokens = this.tokens.concat({ token: token });
+    this.token = token;
     await this.save();
     return token;
   } catch (error) {

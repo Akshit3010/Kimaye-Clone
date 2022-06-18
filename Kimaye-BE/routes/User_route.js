@@ -14,13 +14,13 @@ userRouter.post("/signup", async (req, res) => {
   try {
     const userExist = await User.findOne({ email: email });
     if (userExist) {
-      return res.status(422).json({ error: "email already exists" });
+      return res.status(422).json({ error: "Email already exists" });
     } else {
       const user = new User({ firstName, lastName, email, password });
       await user.save();
       res
         .status(201)
-        .json({ message: "user registered successfully", user: user });
+        .json({ message: "User registered successfully", user: user });
     }
   } catch (err) {
     console.log(err);
@@ -55,7 +55,8 @@ userRouter.post("/login", async (req, res) => {
 userRouter.post("/logout", async (req, res) => {
   try {
     const { token } = req.headers;
-    const user = await User.findOne({ "tokens.token": token });
+    const user = await User.findOne({ token: token });
+    console.log(user, token);
     if (user) {
       user.tokens = [];
       await user.save();
