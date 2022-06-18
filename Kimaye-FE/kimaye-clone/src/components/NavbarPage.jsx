@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import styles from "./styles/navbar.css";
 import "./styles/navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import { Login } from "./Login/Login";
+import { CartModel } from "./cartModel/CartModel";
 
 const dropdowns = {
   display: "flex",
@@ -10,6 +15,20 @@ const dropdowns = {
 };
 
 const NavbarPage = () => {
+  const [login_cart, setlogin_cart] = useState("");
+  // Function and Variable for Model open and close
+  const [state, setState] = React.useState(false);
+  const loginORcart = (who) => {
+    setlogin_cart(who);
+    setState(true)
+  };
+  
+  const list = () => (
+    <Box sx={{ width: 350 }} role="presentation">
+      {login_cart === "login" ? <Login setState={setState} /> : <CartModel setState={setState}/>}
+    </Box>
+  );
+  // ----------end--------->
   return (
     <Navbar
       bg="myColor"
@@ -49,8 +68,10 @@ const NavbarPage = () => {
         <NavLink href="/">
           <img
             className="logo"
+            href="/"
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/website-logo_400x.png?v=1596288204"
             alt=""
+
           />
         </NavLink>
       </Nav>
@@ -58,19 +79,24 @@ const NavbarPage = () => {
       <Nav style={{ display: "flex", gap: "30px" }}>
         <NavLink>
           {" "}
-          <i className="fa-solid fa-location-dot"></i>
+          <i class="fa-solid fa-location-dot"></i>
         </NavLink>
         <NavLink>
           {" "}
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
         </NavLink>
-        <NavLink href="/login">
+        <NavLink onClick={()=>loginORcart("login")}>
           {" "}
-          <i className="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user"></i>
         </NavLink>
-        <NavLink href="/cart">
-          <i className="fa-solid fa-bag-shopping"></i>
+        <NavLink onClick={()=>loginORcart("cart")}>
+          <i class="fa-solid fa-bag-shopping"></i>
         </NavLink>
+        {/* *********** */}
+        <Drawer anchor={"right"} open={state} onClose={() => setState(false)}>
+          {list()}
+        </Drawer>
+        {/* ****************** */}
       </Nav>
     </Navbar>
   );
