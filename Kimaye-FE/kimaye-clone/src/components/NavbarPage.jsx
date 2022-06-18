@@ -49,8 +49,8 @@ const NavbarPage = () => {
         <NavLink href="/">
           <img
             className="logo"
-            href="/"
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/website-logo_400x.png?v=1596288204"
+            alt=""
           />
         </NavLink>
       </Nav>
@@ -58,18 +58,18 @@ const NavbarPage = () => {
       <Nav style={{ display: "flex", gap: "30px" }}>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>
         </NavLink>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </NavLink>
         <NavLink href="/login">
           {" "}
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
         </NavLink>
         <NavLink href="/cart">
-          <i class="fa-solid fa-bag-shopping"></i>
+          <i className="fa-solid fa-bag-shopping"></i>
         </NavLink>
       </Nav>
     </Navbar>

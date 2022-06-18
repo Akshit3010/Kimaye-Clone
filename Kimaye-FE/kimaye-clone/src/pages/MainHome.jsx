@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
- import Calender from "./Calender";
- import Index from "./Carousel11";
+import Calender from "./Calender";
+import Index from "./Carousel11";
 // import {ControlledCarousel} from "../components/ControlledCarousel"
-import pic1 from "../components/last_img/pic1.jpg"
-import pic2 from "../components/last_img/pic2.jpg"
-import pic3 from "../components/last_img/pic3.jpg"
-import pic4 from "../components/last_img/pic4.jpg"
-
-
+import pic1 from "../components/last_img/pic1.jpg";
+import pic2 from "../components/last_img/pic2.jpg";
+import pic3 from "../components/last_img/pic3.jpg";
+import pic4 from "../components/last_img/pic4.jpg";
 
 const Div1 = styled.div`
   // *, *:before, *:after {
@@ -26,9 +24,9 @@ const Div1 = styled.div`
   opacity: 1;
   z-index: 1;
   color: rgb(171, 171, 59);
-  overflow:hiden;
+  overflow: hiden;
 
-  img{
+  img {
     cursor: pointer;
   }
 `;
@@ -50,6 +48,10 @@ const Div2 = styled.div`
     width: 100%;
     height: 72%;
     border-radius: 30px;
+    transition: transform 0.4s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   button {
     height: 40px;
@@ -92,7 +94,7 @@ const Div3 = styled.div`
     height: 92%;
     margin-top: 50px;
     text-align: left;
-    overflow:hidden;
+    overflow: hidden;
   }
   img {
     width: 100%;
@@ -164,8 +166,8 @@ const P3 = styled.p`
   letter-spacing: 0.6px;
   margin-top: 80px;
   line-height: 35px;
-  font_family:Bitterbrush;
-  text-transform:uppercase;
+  font-family: Bitterbrush;
+  text-transform: uppercase;
 `;
 
 const P4 = styled.p`
@@ -190,33 +192,33 @@ const P5 = styled.p`
   padding-top: 70px;
   line-height: 35px;
 `;
-const Div5 = styled.div`
+// const Div5 = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+
+//   img {
+//     margin-top: 20px;
+//     width: 520px;
+//     height: 350px;
+//     border-radius: 33px;
+//   }
+// `;
+const Div6 = styled.div`
+  height: 280px;
+  width: 94%;
+  margin: auto;
   display: flex;
-  justify-content: space-around;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  justify-content: space-between;
 
   img {
-    margin-top: 20px;
-    width: 520px;
-    height: 350px;
-    border-radius: 33px;
+    width: 270px;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 20px;
   }
 `;
-const Div6 = styled.div`
-height: 280px;
-width: 94%;
-margin: auto;
-display: flex;
-margin-top: 60px;
-margin-bottom: 60px;
-justify-content: space-between;
-
-img{
-  width: 270px;
-  height: 100%;
-  cursor: pointer;
-  border-radius: 20px;
-}
-`
 
 const MainHome = () => {
   return (
@@ -265,44 +267,44 @@ const MainHome = () => {
       {/* 3rd Part--------------------------------------------------------> */}
       <Div2>
         <div>
-         <div style={{overflow:"hidden", borderRadius:"30px"}}>
-         <img
-            src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-1-min_720x.png?v=1614338437"
-            alt=""
-          />
-         </div>
+          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+            <img
+              src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-1-min_720x.png?v=1614338437"
+              alt=""
+            />
+          </div>
           <P1>ALL FRUITS</P1>
           <P2>Pick and choose from a wide range of delicious fruits</P2>
           <button>Shop Now</button>
         </div>
         <div>
-         <div style={{overflow:"hidden", borderRadius:"30px"}}>
-         <img
-            src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-3-min_720x.png?v=1614338730"
-            alt=""
-          />
-         </div>
+          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+            <img
+              src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-3-min_720x.png?v=1614338730"
+              alt=""
+            />
+          </div>
           <P1>FRESH CUTS</P1>
           <P2>We want to spoon-feed you… quite literally</P2>
           <button>Shop Now</button>
         </div>
         <div>
-        <div style={{overflow:"hidden", borderRadius:"30px"}}>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-2-min_720x.jpg?v=1614339080"
-            alt=""
-          />
+          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+            <img
+              src="https://cdn.shopify.com/s/files/1/0449/5225/6667/collections/recommended-2-min_720x.jpg?v=1614339080"
+              alt=""
+            />
           </div>
           <P1>FRUIT COMBOS</P1>
           <P2>Indulge in fruit combinations created by us</P2>
           <button>Shop Now</button>
         </div>
         <div>
-        <div style={{overflow:"hidden", borderRadius:"30px"}}>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/Untitled_design_6_720x.png?v=1634808861"
-            alt=""
-          />
+          <div style={{ overflow: "hidden", borderRadius: "30px" }}>
+            <img
+              src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/Untitled_design_6_720x.png?v=1634808861"
+              alt=""
+            />
           </div>
           <P1>GIFTS BY KIMAYE</P1>
           <P2>Healthy & memorable gifts for your loved ones</P2>
@@ -312,7 +314,6 @@ const MainHome = () => {
       {/* 4th Part--------------------------------------------------------> */}
       <Div3>
         <div>
-        
           <img
             src="https://cdn.shopify.com/s/files/1/0449/5225/6667/files/kimahi_570x_2db87855-9260-47c2-a80e-3759af77dbea_670x.png?v=1622009438"
             alt=""
@@ -339,14 +340,14 @@ const MainHome = () => {
       </Div3>
       {/* 5th Part--------------------------------------------------------> */}
       <P3>THE SECRET’S OUT: WE’RE SUPER SAFE</P3>
-      
+
       <P4>Witness Our Journey</P4>
-            {/* 6th Part--------------------------------------------------------> */}
-            <Calender />
+      {/* 6th Part--------------------------------------------------------> */}
+      <Calender />
       {/* 7th Part--------------------------------------------------------> */}
       <JazzItUp>
         <P5>JAZZ IT UP WITH FRUITS</P5>
-        <Index/>
+        <Index />
       </JazzItUp>
       {/* 8th Part--------------------------------------------------------> */}
       <P5>PSST… LOOKIN’ FOR US?</P5>
@@ -357,9 +358,6 @@ const MainHome = () => {
         <img src={pic2} alt="" />
         <img src={pic3} alt="" />
         <img src={pic4} alt="" />
-
-
-
       </Div6>
     </Div1>
   );
