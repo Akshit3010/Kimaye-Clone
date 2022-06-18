@@ -1,21 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BlogDetails from './Grow/BlogDetails';
-import Grow from './Grow/Grow';
-import Home from './Home/Home';
-import ProductDetails from './ProductDetails/ProductDetails';
+import "./App.css";
+import NavbarPage from './components/NavbarPage'
+import { MainRouter } from "./routers/MainRouter";
+import Footer from './components/Footer'
+
 function App() {
-  return (
-    <div className='App'>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='grow' element={<Grow />} />
-          <Route path='/blogdetails' element={<BlogDetails />} />
-          <Route path='productdetails' element={<ProductDetails/>}/>
-        </Routes>
-      </Router>
-    </div>
-  );
+  return <div className="App">
+    <NavbarPage />
+    <MainRouter/>
+    <Footer />
+  </div>;
 }
 
 export default App;
