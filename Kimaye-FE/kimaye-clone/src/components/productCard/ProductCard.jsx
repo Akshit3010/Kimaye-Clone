@@ -13,6 +13,7 @@ export const ProductCard = ({
   price,
   _id,
   discount,
+  quantity
 }) => {
   const [btnTogle, setBtntogle] = useState(false);
   const navigate = useNavigate();
@@ -29,19 +30,22 @@ export const ProductCard = ({
     description,
     origin,
     price,
-    id,
-    discount
+    _id,
+    discount,quantity
   ) => {
-    const cartData = {
-      title,
-      image,
-      description,
-      origin,
-      price,
-      id,
-      discount,
-    };
-    dispatch(addTocart(cartData));
+  
+      const cartData = {
+        title,
+        image,
+        description,
+        origin,
+        price,
+        _id,
+        discount,
+        quantity
+      };
+      dispatch(addTocart(cartData));
+    
   };
 
   return (
@@ -68,7 +72,7 @@ export const ProductCard = ({
                 origin,
                 price,
                 _id,
-                discount
+                discount,quantity
               )
             }
             className={styles.CtoSbtn}

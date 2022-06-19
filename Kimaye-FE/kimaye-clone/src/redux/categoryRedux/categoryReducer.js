@@ -1,6 +1,7 @@
 import { getFromLocal, saveInLocal } from "../../localStorageFn/localstorage";
 import {
   ADD_CART,
+  GET_CART_DATA,
   GET_DATA_BY_CATEGORY,
   IS_ERROR,
   IS_LOADING,
@@ -47,6 +48,13 @@ export const AllProductReducer = (state = initState, { type, payload }) => {
         ...state,
         cartData: updateCart,
       };
+    };
+    case GET_CART_DATA:{
+      saveInLocal("cartData", payload);
+      return{
+        ...state,
+        cartData: payload,
+      }
     }
     default: {
       return state;
