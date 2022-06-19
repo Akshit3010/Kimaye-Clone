@@ -6,8 +6,8 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Login } from "./Login/Login";
 import { CartModel } from "./cartModel/CartModel";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCartData } from "../redux/categoryRedux/categoryAction";
 
 const dropdowns = {
@@ -22,7 +22,7 @@ const NavbarPage = () => {
   const [cartCount, setCartcount] = useState(0);
   const dispatch = useDispatch();
   useEffect(() => {
-    getCartData(dispatch)
+    getCartData(dispatch);
     // console.log(cartData);
     setCartcount(cartData.length);
   }, [cartData]);
@@ -100,11 +100,11 @@ const NavbarPage = () => {
       <Nav style={{ display: "flex", gap: "30px" }}>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>
         </NavLink>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </NavLink>
         <NavLink
           onClick={() => {
@@ -116,7 +116,7 @@ const NavbarPage = () => {
           }}
         >
           {" "}
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
         </NavLink>
         {loggedIn && (
           <>
@@ -138,10 +138,11 @@ const NavbarPage = () => {
           </>
         )}
         <NavLink onClick={() => loginORcart("cart")}>
-          <i class="fa-solid fa-bag-shopping">
-            <span style={{ backgroundColor: "white", position: "absolute" }}>
-              {cartCount}
-            </span>
+          <i
+            className="fa-solid fa-bag-shopping"
+            style={{ position: "relative" }}
+          >
+            <span className="cart_length">{cartData.length}</span>
           </i>
         </NavLink>
         {/* *********** */}

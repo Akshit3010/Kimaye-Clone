@@ -1,3 +1,12 @@
+* {
+  text-decoration: none !important;
+}
+
+::selection {
+  color: #fff;
+  background: #98cb4c;
+}
+
 .logo {
   height: 40px;
 }
@@ -50,4 +59,15 @@
   border: none;
   padding: 4px 20px;
   width: 100%;
+}
+
+.cart_length {
+  position: absolute;
+  top: -50%;
+  left: 60%;
+  background-color: #98cb4c;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 50%;
+  font-size: 0.7rem;
 }

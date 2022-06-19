@@ -25,11 +25,14 @@ export const Login = ({ setState }) => {
           notify(res.data.message.toUpperCase());
           localStorage.setItem("user", JSON.stringify(res.data.userLogin));
           localStorage.setItem("token", JSON.stringify(res.data.token));
+          setState(false);
         }
-        console.log(res);
       })
       .catch((err) => {
         if (err.response.status === 422) {
+          error(err.response.data.error.toUpperCase());
+        }
+        if (err.response.status === 400) {
           error(err.response.data.error.toUpperCase());
         }
       });
