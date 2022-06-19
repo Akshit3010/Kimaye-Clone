@@ -139,7 +139,7 @@ const NavbarPage = () => {
         )}
         <NavLink onClick={() => loginORcart("cart")}>
           <i class="fa-solid fa-bag-shopping">
-            <span style={{ backgroundColor: "white", position: "absolute" }}>
+            <span style={{ backgroundColor: "white", padding:"5px",borderRadius:"50%" }}>
               {cartCount}
             </span>
           </i>
