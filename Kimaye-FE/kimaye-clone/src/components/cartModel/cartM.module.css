@@ -1,73 +1,80 @@
 .outerDiv {
-    width: 350px;
-    /* border: solid; */
-    margin: auto;
-    background-color: white;
-    text-align: center;
-  }
-  .heading {
-    /* border: solid; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-    padding: 30px 15px;
-  }
-  .heading p {
-    cursor: pointer;
-  }
-  .heading h3 {
-    font-size: 25px;
-    font-family: "Times New Roman", Times, serif;
-    font-weight: bolder;
-  }
-  .empty{
-    margin-top: 50px;
-    border-bottom: solid rgb(226, 226, 226);
-  }
-  .comments p{
-margin: 0;
-font-size: 14px;
-  }
-  .Btn{
-    width: 80%;
-    margin: 20px;
-    padding: 10px;
-    border: none;
-    background-color: rgb(214, 214, 214);
-  }
+  width: 350px;
+  /* border: solid; */
+  margin: auto;
+  background-color: white;
+  text-align: center;
+}
+.heading {
+  /* border: solid; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 30px 15px;
+}
+.heading p {
+  cursor: pointer;
+}
+.heading h3 {
+  font-size: 25px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+.empty {
+  margin-top: 50px;
+  border-bottom: solid rgb(226, 226, 226);
+}
+.comments p {
+  margin: 0;
+  font-size: 14px;
+}
+.Btn {
+  width: 80%;
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(204, 204, 204);
+  transition: all 0.4s ease;
+}
 
-  .subtotal{
-display: flex;
-justify-content: space-between;
-border-bottom: solid rgb(138, 138, 138) 1px;
-margin: 5px;
-  }
-  .subtotal h4{
-    font-weight: bold;
-  }
+.Btn:hover {
+  background-color: rgb(36, 36, 36);
+  color: #fff;
+}
 
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid rgb(138, 138, 138) 1px;
+  margin: 5px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+.subtotal h4 {
+  font-weight: bold;
+}
 
-  .listCard{
-    display: flex;
-    /* height: 100px; */
-    border-bottom: solid rgb(138, 138, 138) 1px;
-    margin: 5px;
-    padding: 5px;
-    text-align: left;
-  }
-  .listCard div:first-child{
-    width: 30%;
-    /* border: solid red 1px; */
-  }
-  .listCard img{
-    width: 100%;
-  }
-  .listCard p{
-    margin: 0;
-  }
-  .listCard div:last-child{
-    /* border: solid red 1px; */
-    margin-left: 20px;
-  }
+.listCard {
+  display: flex;
+  /* height: 100px; */
+  border-bottom: solid rgb(138, 138, 138) 1px;
+  margin: 5px;
+  padding: 5px;
+  text-align: left;
+}
+.listCard div:first-child {
+  width: 30%;
+  /* border: solid red 1px; */
+}
+.listCard img {
+  width: 100%;
+}
+.listCard p {
+  margin: 0;
+}
+.listCard div:last-child {
+  /* border: solid red 1px; */
+  margin-left: 20px;
+}

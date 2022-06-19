@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -8,7 +9,9 @@ const Check = styled.div`
   display: flex;
   width: 85%;
   margin: auto;
+  gap: 2rem;
   text-align: justify;
+  padding: 2.5rem 0;
 `;
 
 const Intro = styled.div`
@@ -39,12 +42,13 @@ const Long = styled.input`
 `;
 
 const Short = styled.input`
-width:30%;
-height:50px;
-border-radius:7px;
-border: none;
+  width: 30%;
+  height: 50px;
+  border-radius: 7px;
+  border: none;
 
-padding:7px`;
+  padding: 7px;
+`;
 
 const Shiping = styled.div`
   padding: 10px;
@@ -58,10 +62,69 @@ const Total = styled.div`
 const Checkout = () => {
   const [email, setEmail] = useState("");
   const [formData, setFormdata] = useState({});
+  const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    setEmail(localStorage.getItem("emailId"));
+    getCartData();
+    const user = JSON.parse(localStorage.getItem("user"));
+    setEmail(user.email);
+    setFormdata({
+      ...formData,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    });
   }, []);
+
+  const initPayment = (data) => {
+    const options = {
+      key: "",
+      amount: data.amount,
+      currency: data.currency,
+      name: "kimaye",
+      description: "Your total amount",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+          const verifyURL =
+            "https://kimaye-backend.herokuapp.com/payment/verify";
+          const { data } = await axios.post(verifyURL, response);
+          console.log("data:", data);
+        } catch (err) {
+          console.log("err:", err);
+        }
+      },
+      theme: {
+        color: "#242873",
+      },
+      redirect: true,
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
+
+  const handlePayment = async () => {
+    try {
+      const orderURL = "https://kimaye-backend.herokuapp.com/payment/orders";
+      const { data } = await axios.post(orderURL, { amount: 711 });
+      console.log("data:", data);
+      initPayment(data.data);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+
+  const getCartData = () => {
+    fetch("https://kimaye-backend.herokuapp.com/cart")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length === 0) {
+        }
+        setCartData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,6 +134,12 @@ const Checkout = () => {
     e.preventDefault();
     console.log(formData);
   };
+
+  const total_price = cartData.reduce((acc, el) => {
+    return acc + el.price;
+  }, 0);
+  console.log(cartData, total_price);
+
   return (
     <Check>
       <Intro>
@@ -86,7 +155,7 @@ const Checkout = () => {
         <div>
           <Line>
             <div>
-              <p style={{fontSize:"25px"}}>Contact information</p>
+              <p style={{ fontSize: "25px" }}>Contact information</p>
             </div>
             <div>
               <p>
@@ -97,8 +166,9 @@ const Checkout = () => {
           <Long
             name="email"
             type="email"
-            // value={email}
+            value={email}
             placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <br />
@@ -107,7 +177,9 @@ const Checkout = () => {
         </div>
         <Shiping>
           <form onSubmit={handleSubmit}>
-            <h4 style={{marginTop:"40px",marginBottom:"30px"}}>Shipping address</h4>
+            <h4 style={{ marginTop: "40px", marginBottom: "30px" }}>
+              Shipping address
+            </h4>
             <Long
               name="country"
               type="text"
@@ -116,25 +188,33 @@ const Checkout = () => {
               onChange={handleChange}
             />
             <br />
-            <div style={{display:"flex",justifyContent:"space-between",width:"95%",marginBottom:"10px"}}>
-
-            <Short
-              style={{width:"49%"}}
-              name="firstName"
-              type="text"
-              placeholder="First Name"
-              required
-              onChange={handleChange}
-            />
-            <Short
-            style={{width:"49%"}}
-              name="lastName"
-              type="text"
-              placeholder="Last Name"
-              required
-              onChange={handleChange}
-            />
-          </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "95%",
+                marginBottom: "10px",
+              }}
+            >
+              <Short
+                style={{ width: "49%" }}
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+                value={formData.firstName}
+                required
+                onChange={handleChange}
+              />
+              <Short
+                style={{ width: "49%" }}
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+                value={formData.lastName}
+                required
+                onChange={handleChange}
+              />
+            </div>
             <Long
               name="address"
               type="text"
@@ -151,31 +231,38 @@ const Checkout = () => {
               onChange={handleChange}
             />
             <br />
-            <div style={{display:"flex",justifyContent:"space-between",width:"95%",marginBottom:"10px"}}>
-            <Short
-            style={{width:"33%"}}
-              name="city"
-              type="text"
-              placeholder="City"
-              required
-              onChange={handleChange}
-            />
-            <Short
-            style={{width:"31%"}}
-              name="State"
-              type="text"
-              placeholder="State"
-              required
-              onChange={handleChange}
-            />
-            <Short
-            style={{width:"33%"}}
-              name="zip"
-              type="text"
-              placeholder="Pin Code"
-              required
-              onChange={handleChange}
-            />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "95%",
+                marginBottom: "10px",
+              }}
+            >
+              <Short
+                style={{ width: "33%" }}
+                name="city"
+                type="text"
+                placeholder="City"
+                required
+                onChange={handleChange}
+              />
+              <Short
+                style={{ width: "31%" }}
+                name="State"
+                type="text"
+                placeholder="State"
+                required
+                onChange={handleChange}
+              />
+              <Short
+                style={{ width: "33%" }}
+                name="zip"
+                type="text"
+                placeholder="Pin Code"
+                required
+                onChange={handleChange}
+              />
             </div>
             <Long
               name="Number"
@@ -199,60 +286,75 @@ const Checkout = () => {
                 border: "none",
               }}
               type="submit"
+              onClick={handlePayment}
             >
-              Continue to Shipping
+              Continue to Payment
             </button>
             <Link href="/cart" style={{ color: "red", marginLeft: "30px" }}>
               Return to cart
             </Link>
           </form>
         </Shiping>
-        <div style={{borderTop:"solid 2px gray", padding:"10px",display:"flex",marginTop:"50px",fontSize:"12px"}}>
-          <Link style={{marginRight:"20px"}} href="">Return policy</Link>
-          <Link style={{marginRight:"20px"}} href="">Shipping policy</Link>
-          <Link style={{marginRight:"20px"}} href="">Privacy policy</Link>
-          <Link style={{marginRight:"20px"}} href="">Terms of service</Link>
+        <div
+          style={{
+            borderTop: "solid 2px gray",
+            padding: "10px",
+            display: "flex",
+            marginTop: "50px",
+            fontSize: "12px",
+          }}
+        >
+          <Link style={{ marginRight: "20px" }} href="">
+            Return policy
+          </Link>
+          <Link style={{ marginRight: "20px" }} href="">
+            Shipping policy
+          </Link>
+          <Link style={{ marginRight: "20px" }} href="">
+            Privacy policy
+          </Link>
+          <Link style={{ marginRight: "20px" }} href="">
+            Terms of service
+          </Link>
         </div>
       </Intro>
       <Total>
-        <div>
-          Map the cart data here
+        <div>Map the cart data here</div>
+        <hr />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Long
+            name="discount"
+            type="text"
+            placeholder="Gift card or Discount code"
+            style={{ width: "80%" }}
+          ></Long>
+          <button
+            style={{
+              color: "gray",
+              backgroundColor: "lightgray",
+              width: 100,
+              height: 50,
+              borderRadius: 7,
+              border: "none",
+            }}
+          >
+            Apply
+          </button>
         </div>
-          <hr />
-          <div style={{ display: "flex",justifyContent:"space-between"}}>
-            <Long
-              name="discount"
-              type="text"
-              placeholder="Gift card or Discount code"
-              style={{width:"80%"}}
-            ></Long>
-            <button
-              style={{
-                color: "gray",
-                backgroundColor: "lightgray",
-                width: 100,
-                height:50,
-                borderRadius: 7,
-                border: "none",
-              }}
-            >
-              Apply
-            </button>
-          </div>
-          <hr />
-          <div style={{ display: "flex",justifyContent:"space-between"}}>
-            <h5>Subtotal</h5>
-            <h5>320</h5>
-          </div>
-          <div style={{ display: "flex",justifyContent:"space-between"}}>
-            <h5>Shipping</h5>
-            <h5>free</h5>
-          </div>
-          <hr />
-          <div style={{ display: "flex",justifyContent:"space-between"}}>
-            <h3>Total</h3>
-            <h3>INR ₹ 320.00</h3>
-          </div>
+        <hr />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h5>Subtotal</h5>
+          <h5>320</h5>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h5>Shipping</h5>
+          <h5>free</h5>
+        </div>
+        <hr />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h3>Total</h3>
+          <h3>INR ₹ {total_price}</h3>
+        </div>
       </Total>
     </Check>
   );
