@@ -21,6 +21,7 @@ export const Login = ({ setState }) => {
         password,
       })
       .then((res) => {
+        console.log(res);
         if (res.data.message) {
           notify(res.data.message.toUpperCase());
           localStorage.setItem("user", JSON.stringify(res.data.userLogin));

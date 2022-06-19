@@ -69,7 +69,7 @@ const ProductDetails = () => {
   const [product, setproduct] = useState({});
   const { _id } = useParams();
   const { categoryData } = useSelector((state) => state.AllProductReducer);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   /*
       let Data;
     const getData = async () => {
@@ -98,15 +98,15 @@ const ProductDetails = () => {
     console.log(data[0]);
     setproduct(data[0]);
   }, []);
-  const handleInc=()=>{
-    setQuantity(quantity + 1)
+  const handleInc = () => {
+    setQuantity(quantity + 1);
   };
-  const handleDec=()=>{
+  const handleDec = () => {
     if (quantity > 1) setQuantity(quantity - 1);
-  }
-  const handleCart=()=>{
+  };
+  const handleCart = () => {
     dispatch(addTocart(product));
-  }
+  };
   return (
     <div>
       <Main>
@@ -120,12 +120,7 @@ const ProductDetails = () => {
           <Price>
             ₹{product.price} <KG>one KG</KG>
           </Price>
-          <Button
-            onClick={handleDec}
-          >
-            -
-          </Button>{" "}
-          <Span>{quantity}</Span>{" "}
+          <Button onClick={handleDec}>-</Button> <Span>{quantity}</Span>{" "}
           <Button onClick={handleInc}>+</Button>{" "}
           <AddButton onClick={handleCart}>Add to Cart</AddButton>
         </div>

@@ -20,7 +20,7 @@ export const Category = () => {
   useEffect(() => {
     getRequestBycat(dispatch, category);
     // console.log(categoryData)
-  }, [dispatch, category]);
+  }, [category]);
   const handlenav = (category) => {
     navigate(`/collections/${category}`);
   };

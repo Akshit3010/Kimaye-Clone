@@ -6,7 +6,6 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import EmptyCart from "./EmptyCart";
 import { useNavigate } from "react-router-dom";
-import { saveInLocal } from "../localStorageFn/localstorage";
 
 const Cart = () => {
   const today = new Date().toISOString().substring(0, 10);
