@@ -9,6 +9,12 @@ This was a collaborative construct week project at Masai School.
 In this project we have tried to create a full stack clone of the Kimaye website using ReactJs for front-end and NodeJs, ExpressJs and MongoDb for backend.
 This project was built by a team of 5 developers in 5 Days. 
 </p>
+### Take a look
+
+---
+
+- Deploy: [Link](https://kimaye-clone-web16.netlify.app/)
+- Blog: [Link](https://medium.com/@callmeabhi1997/cloning-kimaye-website-ff45bb15c8e) 
 
 ### Credits
 
