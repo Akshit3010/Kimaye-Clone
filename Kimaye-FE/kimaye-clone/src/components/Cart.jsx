@@ -79,6 +79,13 @@ const Cart = () => {
   };
 
   const delete_item = async (id) => {
+    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    cartData.splice(
+      cartData.findIndex((item) => item.id === id),
+      1
+    );
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+
     try {
       let res = await fetch("https://kimaye-backend.herokuapp.com/cart", {
         method: "DELETE",
