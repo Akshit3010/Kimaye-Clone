@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Login } from "./Login/Login";
 import { CartModel } from "./cartModel/CartModel";
-import axios from "axios";
 import { useSelector } from "react-redux";
 
 const dropdowns = {
@@ -17,7 +16,7 @@ const dropdowns = {
 
 const NavbarPage = () => {
   const [login_cart, setlogin_cart] = useState("");
-  const {cartData} = useSelector((state)=>state.AllProductReducer)
+  const { cartData } = useSelector((state) => state.AllProductReducer);
   // Function and Variable for Model open and close
   const [state, setState] = React.useState(false);
   const [loggedIn, setLoggedin] = useState(false);
@@ -92,11 +91,11 @@ const NavbarPage = () => {
       <Nav style={{ display: "flex", gap: "30px" }}>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>
         </NavLink>
         <NavLink>
           {" "}
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </NavLink>
         <NavLink
           onClick={() => {
@@ -108,7 +107,7 @@ const NavbarPage = () => {
           }}
         >
           {" "}
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
         </NavLink>
         {loggedIn && (
           <>
@@ -130,7 +129,12 @@ const NavbarPage = () => {
           </>
         )}
         <NavLink onClick={() => loginORcart("cart")}>
-          <i class="fa-solid fa-bag-shopping"><span style={{backgroundColor:"white",position:"absolute"}}>{cartData.length}</span></i>
+          <i
+            className="fa-solid fa-bag-shopping"
+            style={{ position: "relative" }}
+          >
+            <span className="cart_length">{cartData.length}</span>
+          </i>
         </NavLink>
         {/* *********** */}
         <Drawer anchor={"right"} open={state} onClose={() => setState(false)}>

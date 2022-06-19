@@ -8,6 +8,7 @@ const cartRouter = require("./routes/Cart.route");
 dotenv.config({ path: "./config.env" });
 
 const connection = require("./DB/db");
+const paymentRouter = require("./routes/payment_route");
 const PORT = process.env.PORT || 8080;
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(
 app.use("/", fruitsRouter);
 app.use("/cart", cartRouter);
 app.use("/auth", userRouter);
+app.use("/payment", paymentRouter);
 
 app.get("/", (req, res) => {
   res.send("App Working");

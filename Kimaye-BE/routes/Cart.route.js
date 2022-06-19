@@ -22,7 +22,11 @@ cartRouter.patch("/", async (req, res) => {
 
 cartRouter.delete("/", async (req, res) => {
   const { id } = req.body;
-  await Cart.findByIdAndDelete(id);
+  if (id) {
+    await Cart.findByIdAndDelete(id);
+  } else {
+    await Cart.deleteMany({});
+  }
   res.status(200).send({ message: "Deleted from cart" });
 });
 

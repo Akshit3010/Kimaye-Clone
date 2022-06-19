@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import EmptyCart from "./EmptyCart";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const today = new Date().toISOString().substring(0, 10);
@@ -12,6 +13,8 @@ const Cart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [Empty, setIsEmpty] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Your Shopping Cart - Kimaye";
@@ -212,8 +215,20 @@ const Cart = () => {
               <p className="shipping_cart">
                 CONGRATULATIONS! YOU'VE GOT FREE SHIPPING!
               </p>
-              <button>Proceed to Checkout</button>
-              <button>Continue Shopping</button>
+              <button
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+              >
+                Proceed to Checkout
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/collections/allfruits");
+                }}
+              >
+                Continue Shopping
+              </button>
             </div>
           </div>
         </CartMain>
