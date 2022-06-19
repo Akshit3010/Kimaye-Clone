@@ -12,7 +12,7 @@ const initState = {
   isError: false,
   cartData: getFromLocal("cartData") || [],
   categoryData: [],
-  count: 0,
+  count: getFromLocal("cartData") ? getFromLocal("cartData").length : 0,
 };
 
 export const AllProductReducer = (state = initState, { type, payload }) => {

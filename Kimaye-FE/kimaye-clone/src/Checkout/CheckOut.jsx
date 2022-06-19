@@ -70,12 +70,14 @@ const Checkout = () => {
   useEffect(() => {
     getCartData();
     const user = JSON.parse(localStorage.getItem("user"));
-    setEmail(user.email);
-    setFormdata({
-      ...formData,
-      firstName: user.firstName,
-      lastName: user.lastName,
-    });
+    if (user) {
+      setEmail(user.email);
+      setFormdata({
+        ...formData,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      });
+    }
   }, []);
 
   const initPayment = (data) => {
