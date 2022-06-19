@@ -47,8 +47,34 @@
 .subtotal {
   display: flex;
   justify-content: space-between;
-  border-top: solid rgb(214, 214, 214);
-  border-bottom: solid rgb(214, 214, 214);
+  border-bottom: solid rgb(138, 138, 138) 1px;
+  margin: 5px;
   padding: 1rem;
   margin: 2rem 0;
+}
+.subtotal h4 {
+  font-weight: bold;
+}
+
+.listCard {
+  display: flex;
+  /* height: 100px; */
+  border-bottom: solid rgb(138, 138, 138) 1px;
+  margin: 5px;
+  padding: 5px;
+  text-align: left;
+}
+.listCard div:first-child {
+  width: 30%;
+  /* border: solid red 1px; */
+}
+.listCard img {
+  width: 100%;
+}
+.listCard p {
+  margin: 0;
+}
+.listCard div:last-child {
+  /* border: solid red 1px; */
+  margin-left: 20px;
 }

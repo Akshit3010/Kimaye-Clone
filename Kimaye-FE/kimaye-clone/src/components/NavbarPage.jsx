@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/navbar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
@@ -7,6 +7,8 @@ import Drawer from "@mui/material/Drawer";
 import { Login } from "./Login/Login";
 import { CartModel } from "./cartModel/CartModel";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getCartData } from "../redux/categoryRedux/categoryAction";
 
 const dropdowns = {
   display: "flex",
@@ -17,6 +19,13 @@ const dropdowns = {
 const NavbarPage = () => {
   const [login_cart, setlogin_cart] = useState("");
   const { cartData } = useSelector((state) => state.AllProductReducer);
+  const [cartCount, setCartcount] = useState(0);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getCartData(dispatch);
+    // console.log(cartData);
+    setCartcount(cartData.length);
+  }, [cartData]);
   // Function and Variable for Model open and close
   const [state, setState] = React.useState(false);
   const [loggedIn, setLoggedin] = useState(false);

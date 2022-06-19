@@ -1,7 +1,9 @@
 import React from "react";
 import { CartMain } from "./Cart.styled";
+import {useNavigate} from 'react-router-dom'
 
 const EmptyCart = () => {
+  const navigate= useNavigate()
   return (
     <>
       <CartMain>
@@ -14,7 +16,7 @@ const EmptyCart = () => {
             <br />
             You will find a lot of interesting products on our "Shop" page.
           </div>
-          <button>RETURN TO SHOP</button>
+          <button onClick={()=>navigate("/collections/allfruits")}>RETURN TO SHOP</button>
         </div>
       </CartMain>
     </>

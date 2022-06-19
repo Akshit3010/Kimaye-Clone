@@ -5,7 +5,6 @@ import styles from "./cartM.module.css";
 export const CartModel = ({ setState }) => {
   const [cartData, setCartData] = useState([]);
   const [Empty, setIsEmpty] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -79,6 +78,7 @@ export const CartModel = ({ setState }) => {
           close <i className="fa-solid fa-xmark"></i>
         </p>
       </div>
+
       {Empty && (
         <div className={styles.empty}>
           <i className="fa-solid fa-cart-arrow-down"></i>
@@ -156,7 +156,11 @@ export const CartModel = ({ setState }) => {
             <h4>₹ {total_price}</h4>
           </div>
           <div className={styles.comments}>
-            <p>Spend ₹ 18 more to reach FREE SHIPPING!</p>
+            {total_price < 350 ? (
+              <p>Spend ₹ {350 - total_price} more to reach FREE SHIPPING!</p>
+            ) : (
+              <p>CONGRATULATIONS! YOU'VE GOT FREE SHIPPING!</p>
+            )}
 
             <p>No tax on fresh fruits. Free shipping above Rs. 350.</p>
           </div>
@@ -169,6 +173,7 @@ export const CartModel = ({ setState }) => {
           >
             CHECK OUT
           </button>
+
           <br />
           <button
             onClick={() => {
