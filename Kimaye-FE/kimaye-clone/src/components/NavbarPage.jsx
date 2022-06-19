@@ -133,11 +133,13 @@ const NavbarPage = () => {
           </>
         )}
         <NavLink onClick={() => loginORcart("cart")}>
+
           <i
             className="fa-solid fa-bag-shopping"
             style={{ position: "relative" }}
           >
             <span className="cart_length">{count}</span>
+
           </i>
         </NavLink>
         {/* *********** */}
