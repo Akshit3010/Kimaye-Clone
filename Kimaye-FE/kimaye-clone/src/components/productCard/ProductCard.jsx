@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./Pc.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addTocart } from "../../redux/categoryRedux/categoryAction";
+import {
+  addTocart,
+  getCartData,
+} from "../../redux/categoryRedux/categoryAction";
 
 import axios from "axios";
+import { useEffect } from "react";
 
 export const ProductCard = ({
   title,
@@ -19,8 +23,9 @@ export const ProductCard = ({
 }) => {
   const [btnTogle, setBtntogle] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { cartData } = useSelector((state) => state.AllProductReducer);
   const { category } = useParams();
+  const dispatch = useDispatch();
 
   // console.log(category);
   const handleClick = (_id) => {
@@ -36,7 +41,7 @@ export const ProductCard = ({
     _id,
     discount
   ) => {
-    const cartData = {
+    const data = {
       title,
       image,
       description,
@@ -46,12 +51,18 @@ export const ProductCard = ({
       discount,
       quantity,
     };
-    axios
-      .post("https://kimaye-backend.herokuapp.com/cart", cartData)
-      .then((res) => {
-        console.log(res.data);
-      });
-    dispatch(addTocart(cartData));
+    let flag = false;
+    for (let i = 0; i < cartData.length; i++) {
+      if (_id === cartData[i]._id) {
+        console.log(_id, cartData[i]._id);
+        flag = true;
+        return;
+      }
+    }
+
+    if (!flag) {
+      dispatch(addTocart(data));
+    }
   };
 
   return (

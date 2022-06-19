@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Check = styled.div`
@@ -63,6 +63,9 @@ const Checkout = () => {
   const [email, setEmail] = useState("");
   const [formData, setFormdata] = useState({});
   const [cartData, setCartData] = useState([]);
+  const [discount, setDiscount] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCartData();
@@ -88,7 +91,9 @@ const Checkout = () => {
           const verifyURL =
             "https://kimaye-backend.herokuapp.com/payment/verify";
           const { data } = await axios.post(verifyURL, response);
-          console.log("data:", data);
+          if (data.message === "Payment Varified Successfully") {
+            removeCartData();
+          }
         } catch (err) {
           console.log("err:", err);
         }
@@ -96,21 +101,38 @@ const Checkout = () => {
       theme: {
         color: "#242873",
       },
-      redirect: true,
     };
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
+    console.log(rzp1.open());
   };
 
   const handlePayment = async () => {
     try {
       const orderURL = "https://kimaye-backend.herokuapp.com/payment/orders";
-      const { data } = await axios.post(orderURL, { amount: 711 });
+      const { data } = await axios.post(orderURL, {
+        amount: totalPrice > 0 ? totalPrice : total_price,
+      });
       console.log("data:", data);
       initPayment(data.data);
     } catch (err) {
       console.log("err:", err);
     }
+  };
+
+  const removeCartData = () => {
+    localStorage.removeItem("cartData");
+    axios
+      .delete("https://kimaye-backend.herokuapp.com/cart", {})
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+        window.scrollTo(0, 0);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const getCartData = () => {
@@ -135,10 +157,16 @@ const Checkout = () => {
     console.log(formData);
   };
 
-  const total_price = cartData.reduce((acc, el) => {
+  let total_price = cartData.reduce((acc, el) => {
     return acc + el.price;
   }, 0);
-  console.log(cartData, total_price);
+
+  const handleDiscount = () => {
+    if (discount.toLowerCase() === "masai30") {
+      total_price = Math.floor((total_price / 100) * 70);
+      setTotalPrice(total_price);
+    }
+  };
 
   return (
     <Check>
@@ -286,7 +314,9 @@ const Checkout = () => {
                 border: "none",
               }}
               type="submit"
-              onClick={handlePayment}
+              onClick={() => {
+                handlePayment();
+              }}
             >
               Continue to Payment
             </button>
@@ -319,7 +349,35 @@ const Checkout = () => {
         </div>
       </Intro>
       <Total>
-        <div>Map the cart data here</div>
+        <div>
+          {cartData.map((el, index) => {
+            return (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  alignItems: "center",
+                  marginBottom: ".9rem",
+                }}
+              >
+                <img width={80} src={el.image} alt="" />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <p style={{ textAlign: "left", width: "70%" }}>{el.title}</p>
+                  <p>₹{el.price}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
         <hr />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Long
@@ -327,6 +385,7 @@ const Checkout = () => {
             type="text"
             placeholder="Gift card or Discount code"
             style={{ width: "80%" }}
+            onChange={(e) => setDiscount(e.target.value)}
           ></Long>
           <button
             style={{
@@ -337,6 +396,7 @@ const Checkout = () => {
               borderRadius: 7,
               border: "none",
             }}
+            onClick={handleDiscount}
           >
             Apply
           </button>
@@ -344,7 +404,7 @@ const Checkout = () => {
         <hr />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <h5>Subtotal</h5>
-          <h5>320</h5>
+          <h5>₹ {totalPrice > 0 ? totalPrice : total_price}</h5>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <h5>Shipping</h5>
@@ -353,7 +413,7 @@ const Checkout = () => {
         <hr />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <h3>Total</h3>
-          <h3>INR ₹ {total_price}</h3>
+          <h3>INR ₹ {totalPrice > 0 ? totalPrice : total_price}</h3>
         </div>
       </Total>
     </Check>

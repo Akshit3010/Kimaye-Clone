@@ -18,14 +18,9 @@ const dropdowns = {
 
 const NavbarPage = () => {
   const [login_cart, setlogin_cart] = useState("");
-  const { cartData } = useSelector((state) => state.AllProductReducer);
+  const { count } = useSelector((state) => state.AllProductReducer);
   const [cartCount, setCartcount] = useState(0);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    getCartData(dispatch);
-    // console.log(cartData);
-    setCartcount(cartData.length);
-  }, [cartData]);
+
   // Function and Variable for Model open and close
   const [state, setState] = React.useState(false);
   const [loggedIn, setLoggedin] = useState(false);
@@ -142,7 +137,7 @@ const NavbarPage = () => {
             className="fa-solid fa-bag-shopping"
             style={{ position: "relative" }}
           >
-            <span className="cart_length">{cartData.length}</span>
+            <span className="cart_length">{count}</span>
           </i>
         </NavLink>
         {/* *********** */}

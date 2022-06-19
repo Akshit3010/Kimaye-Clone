@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./cartM.module.css";
+import Box from "@mui/material/Box";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+import { CircularProgress } from "@mui/material";
 
 export const CartModel = ({ setState }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [cartData, setCartData] = useState([]);
   const [Empty, setIsEmpty] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Your Shopping Cart - Kimaye";
     getCartData();
   }, []);
 
   const getCartData = () => {
+    setIsLoading(true);
     fetch("https://kimaye-backend.herokuapp.com/cart")
       .then((res) => res.json())
       .then((data) => {
+        setIsLoading(false);
         if (data.length === 0) {
           setIsEmpty(true);
         }
@@ -23,6 +30,7 @@ export const CartModel = ({ setState }) => {
       })
       .catch((err) => {
         console.log(err);
+        setIsError(true);
       });
   };
 
@@ -88,69 +96,85 @@ export const CartModel = ({ setState }) => {
       )}
       {!Empty && (
         <>
-          {cartData.map((el, index) => {
-            const { _id, quantity } = el;
+          {isLoading ? (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "20px",
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          ) : isError ? (
+            <Stack sx={{ width: "100%" }} spacing={2}>
+              <Alert severity="error">Something went wrong</Alert>
+            </Stack>
+          ) : (
+            cartData.map((el, index) => {
+              const { _id, quantity } = el;
 
-            return (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "1.8rem",
-                  padding: "1rem",
-                  gap: "1rem",
-                }}
-                key={index}
-              >
-                <div>
-                  <img width={60} height={60} src={el.image} alt="" />
-                </div>
-                <div style={{ textAlign: "left" }}>
-                  <p>{el.title}</p>
+              return (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "1.8rem",
+                    padding: "1rem",
+                    gap: "1rem",
+                  }}
+                  key={index}
+                >
                   <div>
-                    <div className="cart_main_details">
-                      <button
-                        style={{
-                          cursor: "pointer",
-                          padding: "0.2rem 0.6rem",
-                          fontSize: "1rem",
-                          outline: "none",
-                          border: "1px solid #e0e0e0",
-                          color: "#848484",
-                          backgroundColor: "#f9f9f9",
-                        }}
-                        onClick={() => decrementQuantity(_id, quantity)}
-                      >
-                        -
-                      </button>
-                      <span
-                        style={{
-                          backgroundColor: "#fff",
-                          padding: "0.6rem 0.8rem",
-                        }}
-                      >
-                        {el.quantity}
-                      </span>
-                      <button
-                        style={{
-                          cursor: "pointer",
-                          padding: "0.2rem 0.6rem",
-                          fontSize: "1rem",
-                          outline: "none",
-                          border: "1px solid #e0e0e0",
-                          color: "#848484",
-                          backgroundColor: "#f9f9f9",
-                        }}
-                        onClick={() => incrementQuantity(_id, quantity)}
-                      >
-                        +
-                      </button>
+                    <img width={60} height={60} src={el.image} alt="" />
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <p>{el.title}</p>
+                    <div>
+                      <div className="cart_main_details">
+                        <button
+                          style={{
+                            cursor: "pointer",
+                            padding: "0.2rem 0.6rem",
+                            fontSize: "1rem",
+                            outline: "none",
+                            border: "1px solid #e0e0e0",
+                            color: "#848484",
+                            backgroundColor: "#f9f9f9",
+                          }}
+                          onClick={() => decrementQuantity(_id, quantity)}
+                        >
+                          -
+                        </button>
+                        <span
+                          style={{
+                            backgroundColor: "#fff",
+                            padding: "0.6rem 0.8rem",
+                          }}
+                        >
+                          {el.quantity}
+                        </span>
+                        <button
+                          style={{
+                            cursor: "pointer",
+                            padding: "0.2rem 0.6rem",
+                            fontSize: "1rem",
+                            outline: "none",
+                            border: "1px solid #e0e0e0",
+                            color: "#848484",
+                            backgroundColor: "#f9f9f9",
+                          }}
+                          onClick={() => incrementQuantity(_id, quantity)}
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
           <div className={styles.subtotal}>
             <h4>SUBTOTAL:</h4>
             <h4>₹ {total_price}</h4>

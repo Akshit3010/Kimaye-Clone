@@ -12,6 +12,7 @@ const initState = {
   isError: false,
   cartData: getFromLocal("cartData") || [],
   categoryData: [],
+  count: 0,
 };
 
 export const AllProductReducer = (state = initState, { type, payload }) => {
@@ -42,19 +43,20 @@ export const AllProductReducer = (state = initState, { type, payload }) => {
     }
     case ADD_CART: {
       const updateCart = [...state.cartData, payload];
-      // console.log(updateCart)
+      console.log(updateCart);
       saveInLocal("cartData", updateCart);
       return {
         ...state,
         cartData: updateCart,
+        count: getFromLocal("cartData").length,
       };
-    };
-    case GET_CART_DATA:{
+    }
+    case GET_CART_DATA: {
       saveInLocal("cartData", payload);
-      return{
+      return {
         ...state,
         cartData: payload,
-      }
+      };
     }
     default: {
       return state;
